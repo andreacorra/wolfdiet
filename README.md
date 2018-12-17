@@ -5,4 +5,4 @@ This repository includes codes and information to develop a **PostgreSQL Databas
 
 The repository is divided in subdirectories: 
 
-* **[db_structure](https://github.com/andreacorra/WolfDiet/tree/master/db_structure)**: Database structure (SQL code and functions for for creating the database)
+* **[db_structure](https://github.com/andreacorra/WolfDiet/tree/master/db_structure)**: Database structure (SQL code and functions for creating the database)
