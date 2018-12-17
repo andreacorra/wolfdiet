@@ -35,3 +35,11 @@ GRANT ALL ON SCHEMA temp TO postgres;
 GRANT ALL ON SCHEMA temp TO public;
 COMMENT ON SCHEMA temp
   IS 'schema for temporary files';
+
+
+-- Extension: postgis
+-- DROP EXTENSION postgis;
+
+ CREATE EXTENSION postgis
+  SCHEMA public
+  VERSION "2.4.4";
