@@ -1,3 +1,18 @@
+-- Database: wolf_diet_db
+-- DROP DATABASE wolf_diet_db;
+
+CREATE DATABASE wolf_diet_db
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'C'
+       LC_CTYPE = 'C'
+       CONNECTION LIMIT = -1;
+
+COMMENT ON DATABASE wolf_diet_db
+  IS 'Database used to store studies on wolf feeding ecology';
+  
+
 -- Schema: main
 -- DROP SCHEMA main;
 
