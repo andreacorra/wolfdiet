@@ -37,6 +37,18 @@ COMMENT ON SCHEMA temp
   IS 'schema for temporary files';
 
 
+-- Schema: lu_tables
+-- DROP SCHEMA lu_tables;
+
+CREATE SCHEMA lu_tables
+  AUTHORIZATION postgres;
+
+GRANT ALL ON SCHEMA lu_tables TO postgres;
+GRANT ALL ON SCHEMA lu_tables TO public;
+COMMENT ON SCHEMA lu_tables
+  IS 'schema for the look up tables';
+
+
 -- Extension: postgis
 -- DROP EXTENSION postgis;
 
