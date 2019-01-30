@@ -1,7 +1,7 @@
 # WolfDiet
 Diet analysis of the world's wolves (*Canis lupus*)
 
-!Wolf Prey Spectrum(https://github.com/andreacorra/WolfDiet/blob/master/wolf_prey_spectrum.png)
+![Wolf Prey Spectrum](https://github.com/andreacorra/WolfDiet/blob/master/wolf_prey_spectrum.png)
 
 This repository includes codes and information to develop a **PostgreSQL Database** containing the studies carried out on wolf's feeding ecology throughout its distribution range.
 
