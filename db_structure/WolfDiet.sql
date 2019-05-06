@@ -49,6 +49,13 @@ COMMENT ON SCHEMA lu_tables
   IS 'schema for the look up tables';
 
 
+-- Role: users
+-- DROP ROLE users;
+
+CREATE ROLE users
+  NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE REPLICATION;
+  
+
 -- Extension: postgis
 -- DROP EXTENSION postgis;
 
