@@ -13,7 +13,7 @@ WITH (
 ALTER TABLE lu_tables.lu_source
   OWNER TO postgres;
 GRANT ALL ON TABLE lu_tables.lu_source TO postgres;
-GRANT SELECT ON TABLE lu_tables.lu_source TO user;
+GRANT SELECT ON TABLE lu_tables.lu_source TO users;
 
 COMMENT ON TABLE lu_tables.lu_source IS 'look up table with information on the type of samples used in the analyses';
   COMMENT ON COLUMN lu_tables.lu_source.source_id IS 'database identifier for the type of samples used in the analyses';
@@ -37,7 +37,7 @@ WITH (
 ALTER TABLE lu_tables.lu_analytical_method
   OWNER TO postgres;
 GRANT ALL ON TABLE lu_tables.lu_analytical_method TO postgres;
-GRANT SELECT ON TABLE lu_tables.lu_analytical_method TO user;
+GRANT SELECT ON TABLE lu_tables.lu_analytical_method TO users;
 
 COMMENT ON TABLE lu_tables.lu_analytical_method IS 'look up table with information on the analytical method';
   COMMENT ON COLUMN lu_tables.lu_analytical_method.analytical_method_id IS 'database identifier for the analytical method';
@@ -61,7 +61,7 @@ WITH (
 ALTER TABLE lu_tables.lu_identification_method
   OWNER TO postgres;
 GRANT ALL ON TABLE lu_tables.lu_identification_method TO postgres;
-GRANT SELECT ON TABLE lu_tables.lu_identification_method TO user;
+GRANT SELECT ON TABLE lu_tables.lu_identification_method TO users;
 
 COMMENT ON TABLE lu_tables.lu_identification_method IS 'look up table with information on the identification method';
   COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_id IS 'database identifier for the identification method';
@@ -85,7 +85,7 @@ WITH (
 ALTER TABLE lu_tables.lu_temporal_scale
   OWNER TO postgres;
 GRANT ALL ON TABLE lu_tables.lu_temporal_scale TO postgres;
-GRANT SELECT ON TABLE lu_tables.lu_temporal_scale TO user;
+GRANT SELECT ON TABLE lu_tables.lu_temporal_scale TO users;
 
 COMMENT ON TABLE lu_tables.lu_temporal_scale IS 'look up table with information on the temporal scale';
   COMMENT ON COLUMN lu_tables.lu_temporal_scale.temporal_scale_id IS 'database identifier for the temporal scale';
@@ -109,7 +109,7 @@ WITH (
 ALTER TABLE lu_tables.lu_type_study
   OWNER TO postgres;
 GRANT ALL ON TABLE lu_tables.lu_type_study TO postgres;
-GRANT SELECT ON TABLE lu_tables.lu_type_study TO user;
+GRANT SELECT ON TABLE lu_tables.lu_type_study TO users;
 
 COMMENT ON TABLE lu_tables.lu_type_study IS 'look up table with the information on the type of study performed';
   COMMENT ON COLUMN lu_tables.lu_type_study.type_study_id IS 'database identifier for the type of study performed';
@@ -133,7 +133,7 @@ WITH (
 ALTER TABLE lu_tables.lu_wolf_population
   OWNER TO postgres;
 GRANT ALL ON TABLE lu_tables.lu_wolf_population TO postgres;
-GRANT SELECT ON TABLE lu_tables.lu_wolf_population TO user;
+GRANT SELECT ON TABLE lu_tables.lu_wolf_population TO users;
 
 COMMENT ON TABLE lu_tables.lu_wolf_population IS 'look up table with information on the wolf population';
   COMMENT ON COLUMN lu_tables.lu_wolf_population.wolf_population_id IS 'database identifier for the wolf population';
@@ -157,7 +157,7 @@ WITH (
 ALTER TABLE lu_tables.lu_altitude_range
   OWNER TO postgres;
 GRANT ALL ON TABLE lu_tables.lu_altitude_range TO postgres;
-GRANT SELECT ON TABLE lu_tables.lu_altitude_range TO user;
+GRANT SELECT ON TABLE lu_tables.lu_altitude_range TO users;
 
 COMMENT ON TABLE lu_tables.lu_altitude_range IS 'look up table with information on the altitudinal range';
   COMMENT ON COLUMN lu_tables.lu_altitude_range.altitude_range_id IS 'database identifier for the altitudinal range in meters';
