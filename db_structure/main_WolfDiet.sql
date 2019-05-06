@@ -1,3 +1,5 @@
+-- Deprecated Query
+
 CREATE TABLE main.WolfDiet
 (
   study_id integer NOT NULL DEFAULT nextval('main.WolfDiet_study_id_seq'::regclass), -- Database identifier for the study
