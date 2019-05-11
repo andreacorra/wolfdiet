@@ -6,7 +6,7 @@
 -- DROP TABLE main.reference;
 
 CREATE TABLE main.reference(
-  reference_id integer NOT NULL DEFAULT nextval('main.WolfDiet_study_id_seq'::regclass),
+  reference_id serial NOT NULL,
   publication_year integer,
   type_study_id	integer,
   original_language character varying,
@@ -24,21 +24,21 @@ CREATE TABLE main.reference(
   OIDS=FALSE
 );
   
-ALTER TABLE main.diet_analysis
+ALTER TABLE main.reference
   OWNER TO postgres;
-GRANT ALL ON TABLE main.diet_analysis TO postgres;
-GRANT SELECT ON TABLE main.diet_analysis TO users;
+GRANT ALL ON TABLE main.reference TO postgres;
+GRANT SELECT ON TABLE main.reference TO users;
 
-COMMENT ON TABLE main.diet_analysis IS 'Dimension table with information on the reviewed study';
-  COMMENT ON COLUMN main.diet_analysis.reference_id IS 'database identifier for the reviewed study';
-  COMMENT ON COLUMN main.diet_analysis.publication_year IS 'year of publication';
-  COMMENT ON COLUMN main.diet_analysis.type_study_id IS 'database identifier for the type of study performed';
-  COMMENT ON COLUMN main.diet_analysis.original_language IS 'original language of the study';
-  COMMENT ON COLUMN main.diet_analysis.doi IS 'Digital Object Identifier';
-  COMMENT ON COLUMN main.diet_analysis.link IS 'link to the article';
-  COMMENT ON COLUMN main.diet_analysis.update_timestamp IS 'date and time when the record was uploaded into the database';
-  COMMENT ON COLUMN main.diet_analysis.insert_timestamp IS 'date and time when the record was updated (last time)';
-  COMMENT ON COLUMN main.diet_analysis.notes IS 'additional information';
+COMMENT ON TABLE main.reference IS 'Dimension table with information on the reviewed study';
+  COMMENT ON COLUMN main.reference.reference_id IS 'database identifier for the reviewed study';
+  COMMENT ON COLUMN main.reference.publication_year IS 'year of publication';
+  COMMENT ON COLUMN main.reference.type_study_id IS 'database identifier for the type of study performed';
+  COMMENT ON COLUMN main.reference.original_language IS 'original language of the study';
+  COMMENT ON COLUMN main.reference.doi IS 'Digital Object Identifier';
+  COMMENT ON COLUMN main.reference.link IS 'link to the article';
+  COMMENT ON COLUMN main.reference.update_timestamp IS 'date and time when the record was uploaded into the database';
+  COMMENT ON COLUMN main.reference.insert_timestamp IS 'date and time when the record was updated (last time)';
+  COMMENT ON COLUMN main.reference.notes IS 'additional information';
 
 
 
