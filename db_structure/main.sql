@@ -1,53 +1,55 @@
--- Deprecated Query
+-- Table: main.diet_analysis
+-- DROP TABLE main.diet_analysis;
 
-CREATE TABLE main.WolfDiet
-(
-  study_id integer NOT NULL DEFAULT nextval('main.WolfDiet_study_id_seq'::regclass), -- Database identifier for the study
-  population_id integer, -- Database identifier for the wolf population 
-  country character varying, -- Country of the study area
-  study_area character varying, -- Location of the study area
-  geom_area geometry(Polygon,4326) -- Geometry of the study area (area)
-  geom_centroid geometry(Point,4326), -- Geometry of the study area centroid (point)
-  latitude double precision, -- Latitude of the study area centroid (EPSG 4326)
-  longitude double precision, -- Longitude of the study area centroid (EPSG 4326)
-  altitude_range integer, -- Altitudinal range in meters
-  altitude_mean integer, -- Average altitude in meters
-  
-  -- Add above here
-  insert_timestamp timestamp with time zone DEFAULT now(), -- Date and time when the record was uploaded into the database.
-  update_timestamp timestamp with time zone, -- Date and time when the record was updated (last time).
-  CONSTRAINT study_id_pk PRIMARY KEY (study_id),
-  CONSTRAINT population_id_fk FOREIGN KEY (population_id)
-      REFERENCE lu_tables.lu_population (id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-  
-  -- Checker --------------------------------------------------------------------------------------------
-  CONSTRAINT animals_code_unique UNIQUE (animals_code),
-  CONSTRAINT sex_check CHECK (sex_code::text = 'm'::"char"::text OR sex_code::text = 'f'::"char"::text)
-  --------------------------------------------------------------------------------------------------------
-     
+
+-- Table: main.reference
+-- DROP TABLE main.reference;
+
+CREATE TABLE main.reference(
+  reference_id integer NOT NULL DEFAULT nextval('main.WolfDiet_study_id_seq'::regclass),
+  publication_year integer,
+  type_study_id	integer,
+  original_language character varying,
+  doi text,
+  link text,
+  update_timestamp timestamp with time zone DEFAULT now(), 
+  insert_timestamp timestamp with time zone DEFAULT now(),
+  notes text,
+  CONSTRAINT reference_pkey PRIMARY KEY (reference_id),
+  CONSTRAINT reference_type_study_id_fk FOREIGN KEY (type_study_id)
+      REFERENCES lu_tables.lu_type_study (type_study_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
 )
-WITH (
+  WITH (
   OIDS=FALSE
 );
-ALTER TABLE main.WolfDiet
-  OWNER TO postgres;
-GRANT ALL ON TABLE main.WolfDiet TO postgres;
-GRANT SELECT ON TABLE main.WolfDiet TO public;
-
-COMMENT ON TABLE main.WolfDiet IS 'Study collection on wolf feeding ecology';
-  COMMENT ON COLUMN main.WolfDiet.study_id IS 'Database identifier for the study';
-  COMMENT ON COLUMN main.WolfDiet.population_id IS 'Database identifier for the wolf population';
-  COMMENT ON COLUMN main.WolfDiet.country IS 'Country where the study was done';
-  COMMENT ON COLUMN main.WolfDiet.study_area IS 'Location of the study area';
-  COMMENT ON COLUMN main.WolfDiet.geom_area IS 'Geometry of the study area (area)';
-  COMMENT ON COLUMN main.WolfDiet.geom_point IS 'Geometry of the study area centroid (point)';
-  COMMENT ON COLUMN main.WolfDiet.latitude IS 'Latitude of the study area centroid (EPSG 4326)';
-  COMMENT ON COLUMN main.WolfDiet.longitude IS 'Longitude of the study area centroid (EPSG 4326)';
-  COMMENT ON COLUMN main.WolfDiet.altitude_range IS 'Altitudinal range in meters';
-  COMMENT ON COLUMN main.WolfDiet.altitude_mean IS 'Average altitude in meters';
   
-  -- Add other COMMENT above here
-  COMMENT ON COLUMN main.WolfDiet.insert_timestamp IS 'Date and time when the record was uploaded into the database';
-  COMMENT ON COLUMN main.WolfDiet.update_timestamp IS 'Date and time when the record was updated (last time)';
+ALTER TABLE main.diet_analysis
+  OWNER TO postgres;
+GRANT ALL ON TABLE main.diet_analysis TO postgres;
+GRANT SELECT ON TABLE main.diet_analysis TO users;
 
+COMMENT ON TABLE main.diet_analysis IS 'Dimension table with information on the reviewed study';
+  COMMENT ON COLUMN main.diet_analysis.reference_id IS 'database identifier for the reviewed study';
+  COMMENT ON COLUMN main.diet_analysis.publication_year IS 'year of publication';
+  COMMENT ON COLUMN main.diet_analysis.type_study_id IS 'database identifier for the type of study performed';
+  COMMENT ON COLUMN main.diet_analysis.original_language IS 'original language of the study';
+  COMMENT ON COLUMN main.diet_analysis.doi IS 'Digital Object Identifier';
+  COMMENT ON COLUMN main.diet_analysis.link IS 'link to the article';
+  COMMENT ON COLUMN main.diet_analysis.update_timestamp IS 'date and time when the record was uploaded into the database';
+  COMMENT ON COLUMN main.diet_analysis.insert_timestamp IS 'date and time when the record was updated (last time)';
+  COMMENT ON COLUMN main.diet_analysis.notes IS 'additional information';
+
+
+-- Trigger: update_timestamp on main.animals
+-- DROP TRIGGER update_timestamp ON main.animals;
+
+CREATE TRIGGER update_timestamp
+  BEFORE UPDATE
+  ON main.reference
+  FOR EACH ROW
+  EXECUTE PROCEDURE tools.timestamp_last_update();
+
+
+-- Table: main.site
+-- DROP TABLE main.site;
