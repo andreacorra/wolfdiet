@@ -1,7 +1,7 @@
--- Database: WolfDiet
--- DROP DATABASE WolfDiet;
+-- Database: wolfdiet
+-- DROP DATABASE wolfdiet;
 
-CREATE DATABASE WolfDiet
+CREATE DATABASE wolfdiet
   WITH OWNER = postgres
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
@@ -9,7 +9,7 @@ CREATE DATABASE WolfDiet
        LC_CTYPE = 'C'
        CONNECTION LIMIT = -1;
 
-COMMENT ON DATABASE WolfDiet
+COMMENT ON DATABASE wolfdiet
   IS 'Database used to store studies on wolf feeding ecology';
   
 
