@@ -65,6 +65,18 @@ COMMENT ON SCHEMA lu_tables
   IS 'schema for the look up tables';
 
 
+-- Schema: tools
+-- DROP SCHEMA tools;
+
+CREATE SCHEMA tools
+  AUTHORIZATION postgres;
+
+GRANT ALL ON SCHEMA tools TO postgres;
+GRANT USAGE ON SCHEMA tools TO users;
+COMMENT ON SCHEMA tools
+  IS 'This schema hosts all the functions and tools that are used throughout the database to manage, massage, analyse and query data.';
+
+
 -- Extension: postgis
 -- DROP EXTENSION postgis;
 
