@@ -6,8 +6,8 @@ CREATE TABLE main.diet_analysis(
   source_id integer,
   analytical_method_id integer,
   identification_method_id integer,
-  derived_diet boolean,
   temporal_scale_id integer,
+  derived_diet boolean,
   sample_size integer,
   surface_area integer,
   sampling_period character varying,
@@ -15,8 +15,8 @@ CREATE TABLE main.diet_analysis(
   spatial_effort double precision,
   temporal_effort double precision,
   total_effort integer,
-  update_timestamp timestamp with time zone DEFAULT now(), 
   insert_timestamp timestamp with time zone DEFAULT now(),
+  update_timestamp timestamp with time zone DEFAULT now(), 
   notes text,
   CONSTRAINT diet_analysis_pkey PRIMARY KEY (diet_analysis_id),
   CONSTRAINT diet_analysis_source_id_fk FOREIGN KEY (source_id)
@@ -59,6 +59,7 @@ COMMENT ON TABLE main.diet_analysis IS 'Dimension table with information on anal
   COMMENT ON COLUMN main.diet_analysis.notes IS 'additional information';
 
 
+
 -- Table: main.reference
 -- DROP TABLE main.reference;
 
@@ -69,8 +70,8 @@ CREATE TABLE main.reference(
   original_language character varying,
   doi text,
   link text,
-  update_timestamp timestamp with time zone DEFAULT now(), 
   insert_timestamp timestamp with time zone DEFAULT now(),
+  update_timestamp timestamp with time zone DEFAULT now(),
   notes text,
   CONSTRAINT reference_pkey PRIMARY KEY (reference_id),
   CONSTRAINT reference_type_study_id_fk FOREIGN KEY (type_study_id)
@@ -99,10 +100,109 @@ COMMENT ON TABLE main.reference IS 'Dimension table with information on the revi
 
 
 
-
 -- Table: main.site
 -- DROP TABLE main.site;
 
+CREATE TABLE main.site(
+  site_id serial NOT NULL,
+  world_country_id integer,       
+  wolf_population_id integer,     
+  wolf_subspecies_id integer,     
+  study_area character varying,
+  pack character varying,
+  geom_centroid geometry,
+  geom_area geometry,
+  latitude double precision,
+  longitude double precision,
+  altitude_range_id integer,      
+  world_dem integer,              
+  world_biome_id integer,         
+  world_climate_id integer,       
+  world_human_settlement integer, 
+  world_human_footprint integer,   
+  insert_timestamp timestamp with time zone DEFAULT now(),
+  update_timestamp timestamp with time zone DEFAULT now(),
+  notes text,
+  CONSTRAINT site_pkey PRIMARY KEY (site_id),
+  CONSTRAINT site_wolf_population_id_fk FOREIGN KEY (wolf_population_id)
+      REFERENCES lu_tables.lu_wolf_population (wolf_population_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT site_wolf_subspecies_id_fk FOREIGN KEY (wolf_subspecies_id)
+      REFERENCES lu_tables.lu_wolf_subspecies (wolf_subspecies_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+  CONSTRAINT site_altitude_range_id_fk FOREIGN KEY (altitude_range_id)
+      REFERENCES lu_tables.lu_altitude_range (altitude_range_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+  WITH (
+  OIDS=FALSE
+);
+
+ALTER TABLE main.site
+  OWNER TO postgres;
+GRANT ALL ON TABLE main.site TO postgres;
+GRANT SELECT ON TABLE main.site TO users;
+
+COMMENT ON TABLE main.site IS 'Dimension table with information on the study site';
+  COMMENT ON COLUMN main.site.site_id IS 'database identifier for the study site';
+  COMMENT ON COLUMN main.site.world_country_id IS 'database identifier for the country';
+  COMMENT ON COLUMN main.site.wolf_population_id IS 'database identifier for the wolf population';
+  COMMENT ON COLUMN main.site.wolf_subspecies_id IS 'database identifier for the subspecies of Canis lupus';
+  COMMENT ON COLUMN main.site.study_area IS 'location of study area';
+  COMMENT ON COLUMN main.site.pack IS 'name of the wolf pack';
+  COMMENT ON COLUMN main.site.geom_centroid IS 'geometry of the study area centroid (point)';
+  COMMENT ON COLUMN main.site.geom_area IS 'geometry of the study area (area)';
+  COMMENT ON COLUMN main.site.latitude IS 'latitude of the study area centroid (EPSG 4326)';
+  COMMENT ON COLUMN main.site.longitude IS 'longitude of the study area centroid (EPSG 4326)';
+  COMMENT ON COLUMN main.site.altitude_range_id IS 'database identifier for the altitudinal range in meters';
+  COMMENT ON COLUMN main.site.world_dem IS 'altitude in meters';
+  COMMENT ON COLUMN main.site.world_biome_id IS 'database identifier for the biome'
+  COMMENT ON COLUMN main.site.world_climate_id IS 'database identifier for the climate';
+  COMMENT ON COLUMN main.site.world_human_settlement IS 'Global Human Settlement Layer';  
+  COMMENT ON COLUMN main.site.world_human_footprint IS 'Global Human Footprint';
+  COMMENT ON COLUMN main.site.insert_timestamp IS 'date and time when the record was uploaded into the database';
+  COMMENT ON COLUMN main.site.update_timestamp IS 'date and time when the record was updated (last time)';
+  COMMENT ON COLUMN main.site.notes IS 'additional information';
+
+
+
+-- Table: main.diet_item
+-- DROP TABLE main.diet_item;
+
+CREATE TABLE main.diet_item(
+  diet_item_id serial NOT NULL,
+  common_name text,
+  species_name text,
+  distribution_geom geometry,
+  iucn_status text,
+  year_assessment integer,
+  average_weigth double precision,
+  insert_timestamp timestamp with time zone DEFAULT now(),
+  update_timestamp timestamp with time zone DEFAULT now(),
+  notes text,
+  CONSTRAINT diet_item_pkey PRIMARY KEY (diet_item_id)
+)
+  WITH (
+  OIDS=FALSE
+);
+
+ALTER TABLE main.diet_item
+  OWNER TO postgres;
+GRANT ALL ON TABLE main.diet_item TO postgres;
+GRANT SELECT ON TABLE main.diet_item TO users;
+
+COMMENT ON TABLE main.diet_item IS 'Dimension table with information on the diet item';
+  COMMENT ON COLUMN main.diet_item.diet_item_id IS 'database dentifier for the diet item';
+  COMMENT ON COLUMN main.diet_item.common_name IS 'common name of the diet item';
+  COMMENT ON COLUMN main.diet_item.species_name IS 'species name (taxonomic classification)';
+  COMMENT ON COLUMN main.diet_item.distribution_geom IS 'geometry of the species distribution range (based on iucn)';
+  COMMENT ON COLUMN main.diet_item.iucn_status IS 'iucn red list assessment';
+  COMMENT ON COLUMN main.diet_item.year_assessment IS 'year of the iucn red list assessment';
+  COMMENT ON COLUMN main.diet_item.average_weigth IS 'average weight of the species';
+  COMMENT ON COLUMN main.diet_item.insert_timestamp IS 'date and time when the record was uploaded into the database';
+  COMMENT ON COLUMN main.diet_item.update_timestamp IS 'date and time when the record was updated (last time)';
+  COMMENT ON COLUMN main.diet_item.notes IS 'additional information';
+  
 
 
 
@@ -128,12 +228,3 @@ GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO postgres;
 GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO users;
 COMMENT ON FUNCTION tools.timestamp_last_update() IS 'When a record is updated, the update_timestamp is set to the current time.';
 
-
--- Trigger: update_timestamp on main.animals
--- DROP TRIGGER update_timestamp ON main.animals;
-
-CREATE TRIGGER update_timestamp
-  BEFORE UPDATE
-  ON main.reference
-  FOR EACH ROW
-  EXECUTE PROCEDURE tools.timestamp_last_update();
