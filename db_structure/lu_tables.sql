@@ -142,6 +142,32 @@ COMMENT ON TABLE lu_tables.lu_wolf_population IS 'look up table with information
 
 
 
+-- Table: lu_tables.lu_wolf_subspecies
+-- DROP TABLE lu_tables.lu_wolf_subspecies;
+
+CREATE TABLE lu_tables.lu_wolf_subspecies
+(
+  wolf_subspecies_id integer NOT NULL,
+  wolf_subspecies_description character varying,
+  average_weight integer,
+  CONSTRAINT wolf_subspecies_id_pk PRIMARY KEY (wolf_subspecies_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE lu_tables.lu_wolf_subspecies
+  OWNER TO postgres;
+GRANT ALL ON TABLE lu_tables.lu_wolf_subspecies TO postgres;
+GRANT SELECT ON TABLE lu_tables.lu_wolf_subspecies TO users;
+
+COMMENT ON TABLE lu_tables.lu_wolf_subspecies IS 'look up table with information on the wolf subspecies';
+  COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.wolf_subspecies_id IS 'database identifier for the wolf subspecies';
+  COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.wolf_subspecies_description IS 'description of the wolf subspecies';
+  COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.average_weight  IS 'average weight of the subspecies';
+
+
+
+
 -- Table: lu_tables.lu_altitude_range
 -- DROP TABLE lu_tables.lu_altitude_range;
 
