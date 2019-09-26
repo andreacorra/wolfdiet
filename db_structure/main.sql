@@ -126,10 +126,10 @@ CREATE TABLE main.site(
   CONSTRAINT site_pkey PRIMARY KEY (site_id),
   CONSTRAINT site_wolf_population_id_fk FOREIGN KEY (wolf_population_id)
       REFERENCES lu_tables.lu_wolf_population (wolf_population_id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT site_wolf_subspecies_id_fk FOREIGN KEY (wolf_subspecies_id)
       REFERENCES lu_tables.lu_wolf_subspecies (wolf_subspecies_id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT site_altitude_range_id_fk FOREIGN KEY (altitude_range_id)
       REFERENCES lu_tables.lu_altitude_range (altitude_range_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -156,7 +156,7 @@ COMMENT ON TABLE main.site IS 'Dimension table with information on the study sit
   COMMENT ON COLUMN main.site.longitude IS 'longitude of the study area centroid (EPSG 4326)';
   COMMENT ON COLUMN main.site.altitude_range_id IS 'database identifier for the altitudinal range in meters';
   COMMENT ON COLUMN main.site.world_dem IS 'altitude in meters';
-  COMMENT ON COLUMN main.site.world_biome_id IS 'database identifier for the biome'
+  COMMENT ON COLUMN main.site.world_biome_id IS 'database identifier for the biome';
   COMMENT ON COLUMN main.site.world_climate_id IS 'database identifier for the climate';
   COMMENT ON COLUMN main.site.world_human_settlement IS 'Global Human Settlement Layer';  
   COMMENT ON COLUMN main.site.world_human_footprint IS 'Global Human Footprint';
