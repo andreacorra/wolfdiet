@@ -69,7 +69,6 @@ CREATE TABLE main.reference(
   type_study_id	integer,
   original_language character varying,
   doi text,
-  link text,
   insert_timestamp timestamp with time zone DEFAULT now(),
   update_timestamp timestamp with time zone DEFAULT now(),
   notes text,
@@ -93,7 +92,6 @@ COMMENT ON TABLE main.reference IS 'Dimension table with information on the revi
   COMMENT ON COLUMN main.reference.type_study_id IS 'database identifier for the type of study performed';
   COMMENT ON COLUMN main.reference.original_language IS 'original language of the study';
   COMMENT ON COLUMN main.reference.doi IS 'Digital Object Identifier';
-  COMMENT ON COLUMN main.reference.link IS 'link to the article';
   COMMENT ON COLUMN main.reference.update_timestamp IS 'date and time when the record was uploaded into the database';
   COMMENT ON COLUMN main.reference.insert_timestamp IS 'date and time when the record was updated (last time)';
   COMMENT ON COLUMN main.reference.notes IS 'additional information';
