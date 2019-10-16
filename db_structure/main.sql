@@ -1,3 +1,55 @@
+-- Table: main.wolfdiet
+-- DROP TABLE main.wolfdiet;
+
+CREATE TABLE main.wolfdiet
+(
+  wolfdiet_id integer, -- 
+  diet_analysis_id integer, -- 
+  site_id integer, --
+  diet_item_id integer, --
+  diet_item_frequency double precision,
+  insert_timestamp timestamp with time zone DEFAULT now(),
+  update_timestamp timestamp with time zone DEFAULT now(), 
+  notes text,
+  responsible character varying,
+  reference_id integer, --
+  CONSTRAINT wolfdiet_pkey PRIMARY KEY (wolfdiet_id),
+  CONSTRAINT wolfdiet_diet_analysis_id_fk FOREIGN KEY (diet_analysis_id)
+      REFERENCES main.diet_analysis (diet_analysis_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT wolfdiet_site_id_fk FOREIGN KEY (site_id)
+      REFERENCES main.site (site_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT wolfdiet_diet_item_id_fk FOREIGN KEY (diet_item_id)
+      REFERENCES main.diet_item (diet_item_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT wolfdiet_reference_id_fk FOREIGN KEY (reference_id)
+      REFERENCES main.reference (reference_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+WITH (
+  OIDS=FALSE
+);
+
+ALTER TABLE main.wolfdiet
+  OWNER TO postgres;
+GRANT ALL ON TABLE main.wolfdiet TO postgres;
+GRANT SELECT ON TABLE main.wolfdiet TO users;
+
+COMMENT ON TABLE main.wolfdiet IS 'Fact table with information on the diet';
+  COMMENT ON COLUMN main.wolfdiet.wolfdiet_id IS 'database identifier for the diet';
+  COMMENT ON COLUMN main.wolfdiet.diet_analysis_id IS 'database identifier for type of analysis used to calculate the diet';
+  COMMENT ON COLUMN main.wolfdiet.site_id IS 'database identifier for the study site';
+  COMMENT ON COLUMN main.wolfdiet.diet_item_id IS 'database identifier for the diet item';
+  COMMENT ON COLUMN main.wolfdiet.diet_item_frequency IS 'frequency of given diet item';
+  COMMENT ON COLUMN main.wolfdiet.insert_timestamp IS 'date and time when the record was uploaded into the database';
+  COMMENT ON COLUMN main.wolfdiet.update_timestamp IS 'date and time when the record was updated (last time)';
+  COMMENT ON COLUMN main.wolfdiet.notes IS 'additional information';
+  COMMENT ON COLUMN main.wolfdiet.responsible IS 'responsible for filling up the information in the database';
+  COMMENT ON COLUMN main.wolfdiet.reference_id IS 'database identifier for the reviewed study';
+  
+  
+  
 -- Table: main.diet_analysis
 -- DROP TABLE main.diet_analysis;
 
