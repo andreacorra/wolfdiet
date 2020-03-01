@@ -286,7 +286,7 @@ CREATE TABLE main.diet_item(
   distribution_geom geometry,
   iucn_status text,
   year_assessment integer,
-  average_weigth double precision,
+  average_weigth_kg double precision,
   insert_timestamp timestamp with time zone DEFAULT now(),
   update_timestamp timestamp with time zone DEFAULT now(),
   notes text,
@@ -308,7 +308,7 @@ COMMENT ON TABLE main.diet_item IS 'Dimension table with information on the diet
   COMMENT ON COLUMN main.diet_item.distribution_geom IS 'geometry of the species distribution range (based on iucn)';
   COMMENT ON COLUMN main.diet_item.iucn_status IS 'iucn red list assessment';
   COMMENT ON COLUMN main.diet_item.year_assessment IS 'year of the iucn red list assessment';
-  COMMENT ON COLUMN main.diet_item.average_weigth IS 'average weight of the species';
+  COMMENT ON COLUMN main.diet_item.average_weigth_kg IS 'average weight of the species in kilogram';
   COMMENT ON COLUMN main.diet_item.insert_timestamp IS 'date and time when the record was uploaded into the database';
   COMMENT ON COLUMN main.diet_item.update_timestamp IS 'date and time when the record was updated (last time)';
   COMMENT ON COLUMN main.diet_item.notes IS 'additional information';
