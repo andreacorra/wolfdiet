@@ -149,7 +149,7 @@ CREATE TABLE lu_tables.lu_wolf_subspecies
 (
   wolf_subspecies_id integer NOT NULL,
   wolf_subspecies_description character varying,
-  average_weight integer,
+  average_weight_kg integer,
   CONSTRAINT wolf_subspecies_id_pk PRIMARY KEY (wolf_subspecies_id)
 )
 WITH (
@@ -163,7 +163,7 @@ GRANT SELECT ON TABLE lu_tables.lu_wolf_subspecies TO users;
 COMMENT ON TABLE lu_tables.lu_wolf_subspecies IS 'look up table with information on the wolf subspecies';
   COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.wolf_subspecies_id IS 'database identifier for the wolf subspecies';
   COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.wolf_subspecies_description IS 'description of the wolf subspecies';
-  COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.average_weight  IS 'average weight of the subspecies';
+  COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.average_weight_kg  IS 'average weight of the subspecies in kilograms';
 
 
 
