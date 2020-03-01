@@ -1,3 +1,27 @@
+-- Function: tools.timestamp_last_update()
+-- DROP FUNCTION tools.timestamp_last_update();
+
+CREATE OR REPLACE FUNCTION tools.timestamp_last_update()
+  RETURNS trigger AS
+$BODY$BEGIN
+
+IF NEW IS DISTINCT FROM OLD THEN
+new.update_timestamp = now();
+END IF;
+
+RETURN NEW;
+END;$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION tools.timestamp_last_update()
+  OWNER TO postgres;
+GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO public;
+GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO postgres;
+GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO users;
+COMMENT ON FUNCTION tools.timestamp_last_update() IS 'When a record is updated, the update_timestamp is set to the current time.';
+
+
+
 -- Table: main.wolfdiet
 -- DROP TABLE main.wolfdiet;
 
@@ -321,4 +345,3 @@ GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO public;
 GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO postgres;
 GRANT EXECUTE ON FUNCTION tools.timestamp_last_update() TO users;
 COMMENT ON FUNCTION tools.timestamp_last_update() IS 'When a record is updated, the update_timestamp is set to the current time.';
-
