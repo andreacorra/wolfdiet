@@ -9,7 +9,7 @@ CREATE TABLE main.wolfdiet
   diet_item_id integer, --
   diet_item_frequency double precision,
   insert_timestamp timestamp with time zone DEFAULT now(),
-  update_timestamp timestamp with time zone DEFAULT now(), 
+  update_timestamp timestamp with time zone, 
   notes text,
   responsible character varying,
   reference_id integer, --
@@ -48,7 +48,16 @@ COMMENT ON TABLE main.wolfdiet IS 'Fact table with information on the diet';
   COMMENT ON COLUMN main.wolfdiet.responsible IS 'responsible for filling up the information in the database';
   COMMENT ON COLUMN main.wolfdiet.reference_id IS 'database identifier for the reviewed study';
   
-  
+-- Trigger: update_timestamp on main.wolfdiet
+-- DROP TRIGGER update_timestamp ON main.wolfdiet;
+
+CREATE TRIGGER update_timestamp
+  BEFORE UPDATE
+  ON main.wolfdiet
+  FOR EACH ROW
+  EXECUTE PROCEDURE tools.timestamp_last_update();
+ 
+ 
   
 -- Table: main.diet_analysis
 -- DROP TABLE main.diet_analysis;
@@ -109,6 +118,15 @@ COMMENT ON TABLE main.diet_analysis IS 'Dimension table with information on anal
   COMMENT ON COLUMN main.diet_analysis.update_timestamp IS 'date and time when the record was uploaded into the database';
   COMMENT ON COLUMN main.diet_analysis.insert_timestamp IS 'date and time when the record was updated (last time)';
   COMMENT ON COLUMN main.diet_analysis.notes IS 'additional information';
+  
+-- Trigger: update_timestamp on main.diet_analysis
+-- DROP TRIGGER update_timestamp ON main.diet_analysis;
+
+CREATE TRIGGER update_timestamp
+  BEFORE UPDATE
+  ON main.diet_analysis
+  FOR EACH ROW
+  EXECUTE PROCEDURE tools.timestamp_last_update();
 
 
 
@@ -147,6 +165,15 @@ COMMENT ON TABLE main.reference IS 'Dimension table with information on the revi
   COMMENT ON COLUMN main.reference.update_timestamp IS 'date and time when the record was uploaded into the database';
   COMMENT ON COLUMN main.reference.insert_timestamp IS 'date and time when the record was updated (last time)';
   COMMENT ON COLUMN main.reference.notes IS 'additional information';
+  
+-- Trigger: update_timestamp on main.reference
+-- DROP TRIGGER update_timestamp ON main.reference;
+
+CREATE TRIGGER update_timestamp
+  BEFORE UPDATE
+  ON main.reference
+  FOR EACH ROW
+  EXECUTE PROCEDURE tools.timestamp_last_update();
 
 
 
@@ -213,7 +240,16 @@ COMMENT ON TABLE main.site IS 'Dimension table with information on the study sit
   COMMENT ON COLUMN main.site.insert_timestamp IS 'date and time when the record was uploaded into the database';
   COMMENT ON COLUMN main.site.update_timestamp IS 'date and time when the record was updated (last time)';
   COMMENT ON COLUMN main.site.notes IS 'additional information';
+  
+-- Trigger: update_timestamp on main.site
+-- DROP TRIGGER update_timestamp ON main.site;
 
+CREATE TRIGGER update_timestamp
+  BEFORE UPDATE
+  ON main.site
+  FOR EACH ROW
+  EXECUTE PROCEDURE tools.timestamp_last_update();
+  
 
 
 -- Table: main.diet_item
@@ -253,6 +289,14 @@ COMMENT ON TABLE main.diet_item IS 'Dimension table with information on the diet
   COMMENT ON COLUMN main.diet_item.update_timestamp IS 'date and time when the record was updated (last time)';
   COMMENT ON COLUMN main.diet_item.notes IS 'additional information';
   
+-- Trigger: update_timestamp on main.diet_item
+-- DROP TRIGGER update_timestamp ON main.diet_item;
+
+CREATE TRIGGER update_timestamp
+  BEFORE UPDATE
+  ON main.diet_item
+  FOR EACH ROW
+  EXECUTE PROCEDURE tools.timestamp_last_update();  
 
 
 
