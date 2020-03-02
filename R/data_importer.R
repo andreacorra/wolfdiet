@@ -20,8 +20,8 @@ library(tidyr)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 drv <- dbDriver("PostgreSQL") # Establish connection to PoststgreSQL using RPostgreSQL
 
-db_user <- "postgres"
-db_password <- "cerrotorre"
+db_user <- "*******"
+db_password <- "*******"
 
 sheets_auth() # Authorize googlesheets4 (Access Google Sheets using the Sheets API V4)
 
