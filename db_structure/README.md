@@ -2,6 +2,6 @@ This folder contains the SQL code to generate the main database.
 
 Following, the _preliminary_ structure of the database:  
   
-![ERD](https://github.com/andreacorra/WolfDiet/blob/master/images/ERD_schema.PNG)   
+![ERD](https://github.com/andreacorra/WolfDiet/blob/master/images/ERD_sqlDBM.png)   
   
-Data structure have been modelled as shown in [datamodelr](https://github.com/bergant/datamodelr)
+Data structure have been modelled via [sqlDBM](https://sqldbm.com/Home/)
