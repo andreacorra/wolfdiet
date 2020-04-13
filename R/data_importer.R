@@ -216,6 +216,8 @@ world_country@data <- world_country@data[ , c(
 ## Insert into PostgreSQL
 pgInsert(con, name = c("env_data", "world_country"), world_country, geom = "geom")
 
+dbSendQuery(con, "ALTER TABLE env_data.world_country
+                    ADD CONSTRAINT world_country_id_pk PRIMARY KEY(world_country_id);")
 
 
 ## Load site table into PostgreSQL
@@ -257,6 +259,11 @@ site_db <- site_db[!duplicated(site_db$site_id),]
 # Insert new data into the DB
 # dbSendQuery(con, "DELETE FROM main.site;")
 pgInsert(con, name = c("main", "site"), site_db, partial.match = TRUE)
+
+dbSendQuery(con, "ALTER TABLE main.site
+                    ADD CONSTRAINT site_world_country_id_fk FOREIGN KEY (world_country_id)
+                      REFERENCES env_data.world_country (world_country_id) MATCH SIMPLE
+                      ON UPDATE NO ACTION ON DELETE NO ACTION;")
 
 # dbSendQuery(con,"UPDATE main.site 
 # SET geom = ST_SetSRID(ST_MakePoint(longitude, latitude), 4326);")
