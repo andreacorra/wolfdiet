@@ -1,4 +1,8 @@
 # WolfDiet
+
+[![DOI](https://zenodo.org/badge/162189606.svg)](https://zenodo.org/badge/latestdoi/162189606)  
+
+
 Diet analysis of the world's wolves (*Canis lupus*)
 
 ![Wolf Prey Spectrum](https://github.com/andreacorra/WolfDiet/blob/master/images/wolf_prey_spectrum.png)
