@@ -1,5 +1,5 @@
 # WolfDiet
-
+[![Latest Stable Version](https://img.shields.io/github/v/release/andreacorra/wolfdiet?include_prereleases&style=flat-square)
 [![DOI](https://zenodo.org/badge/162189606.svg)](https://zenodo.org/badge/latestdoi/162189606)  
 
 
