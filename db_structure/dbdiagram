@@ -122,7 +122,7 @@ Table "world_country" {
   "world_country_description" "character varying"
   "iso" "character varying"
   "continent" "character varying"
-  "subregion" "character varying"
+  "sub_region" "character varying"
   "population" "character varying"
   "geom" geometry
 }
