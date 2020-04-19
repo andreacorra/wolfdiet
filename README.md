@@ -14,7 +14,7 @@ This repository includes the codes and information used to develop a **PostgreSQ
 The repository is divided in subdirectories:  
 
 * **[wolfdiet DB](https://github.com/andreacorra/WolfDiet/tree/master/wolfdiet_db)**: The SQLite version of the **wolfdiet** database;
-* **[db_structure](https://github.com/andreacorra/WolfDiet/tree/master/db_structure)**: Database structure (SQL code used for database development);
+* **[database structure](https://github.com/andreacorra/WolfDiet/tree/master/db_structure)**: Database structure (SQL code used for database development);
 * **[bibliography](https://github.com/andreacorra/WolfDiet/tree/master/bibliography)**: List of articles reviewed and currently added in the database;
 * **[images](https://github.com/andreacorra/WolfDiet/tree/master/images)**: List of images used in the GitHub repository;
 
