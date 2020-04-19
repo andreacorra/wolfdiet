@@ -351,6 +351,7 @@ CREATE TRIGGER update_timestamp
 
 
 -- VIEW OF THE PIVOT-TABLE
+-- Partial
 CREATE OR REPLACE VIEW main.diet_item_users AS (
 select * from crosstab(
 	'SELECT diet_analysis_id,common_name,diet_item_frequency FROM (
@@ -439,9 +440,46 @@ select * from crosstab(
 "undefined item" double precision,
 "vegetable fruit" double precision));
 
-										       
-										       
-										       -- CREATE SPATIALITE (run in terminal)
+
+-- Complete
+CREATE OR REPLACE VIEW main.diet_item_complete AS
+	SELECT DISTINCT diet_analysis_id, 
+	world_country_description,
+	wolf_population_description,
+	wolf_subspecies_description,
+	study_area,
+	pack,
+	latitude,
+	longitude,
+	source_id,
+	analytical_method_description,
+	identification_method_id,
+	temporal_scale_id,
+	derived_diet,
+	sample_size,
+	surface_area,
+	sampling_period,
+	time_series,
+	spatial_effort,
+	temporal_effort,
+	total_effort,
+	moose, blackbuck, "american bison", "european bison", yak, cattle, nilgai, buffalo, camel, dog, wolf, "wild goat", goat, markhor, "alpine ibex", "siberian ibex", "roe deer", carnivorae, elk, "red deer", "sika deer", "fallow deer", donkey, horse, "przewalski horse", onager, cat, chinkara, "goitered gazelle", "crested porcupine", badger, "musk deer", "raccoon dog", "mule deer", "black tailed deer", "white tailed deer", "mountain goat", muskox, argali, sheep, bighorn, "dall sheep", "snow sheep", mouflon, urial, "mongolian gazelle", "przewalski gazelle", "blue sheep", "wild reindeer", chamois, saiga, "wild boar", pig, "brown bear", "red fox", "wild artiodactyla", "wild bovidae", bird, "castor sp", cervidae, "domestic ungulata", fish, garbage, lagomorpha, "marmota sp", mesomammals, micromammals, microrodents, other, "other domestic ungulata", "semiaquatic rodentia", "undefined item", "vegetable fruit"
+		FROM main.diet_item_users 
+		JOIN main.wolfdiet USING (diet_analysis_id)
+		JOIN main.diet_analysis
+		USING (diet_analysis_id) 
+		JOIN main.site USING (site_id) 
+		JOIN lu_tables.lu_wolf_population using (wolf_population_id) 
+		JOIN lu_tables.lu_source using (source_id) 
+		JOIN lu_tables.lu_analytical_method using (analytical_method_id) 
+		--JOIN lu_tables.lu_temporal_scale using (temporal_scale_id) 
+		JOIN env_data.world_country using (world_country_id) 
+		JOIN lu_tables.lu_wolf_subspecies using (wolf_subspecies_id)
+		--JOIN lu_tables.lu_identification_method using (identification_method_id);
+
+
+
+-- CREATE SPATIALITE (run in terminal)
 -- CREATE FILE AND FIRST TABLE 
 ogr2ogr -f SQLite -dsco SPATIALITE=yes wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" main.diet_analysis
 -- CREATE OTHER TABLES 
