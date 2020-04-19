@@ -219,6 +219,9 @@ pgInsert(con, name = c("env_data", "world_country"), world_country, geom = "geom
 dbSendQuery(con, "ALTER TABLE env_data.world_country
                     ADD CONSTRAINT world_country_id_pk PRIMARY KEY(world_country_id);")
 
+dbSendQuery(con, "ALTER TABLE env_data.world_country
+                    ALTER COLUMN world_country_id TYPE integer;")
+
 
 ## Load site table into PostgreSQL
 
