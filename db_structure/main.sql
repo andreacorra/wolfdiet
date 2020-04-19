@@ -346,3 +346,115 @@ CREATE TRIGGER update_timestamp
   ON main.wolfdiet
   FOR EACH ROW
   EXECUTE PROCEDURE tools.timestamp_last_update();
+
+
+
+
+-- VIEW OF THE PIVOT-TABLE
+CREATE OR REPLACE VIEW main.diet_item_users AS (
+select * from crosstab(
+	'SELECT diet_analysis_id,common_name,diet_item_frequency FROM (
+	SELECT diet_analysis_id, diet_item_id,diet_item_frequency FROM 
+	(SELECT diet_analysis_id, diet_item_id
+	FROM main.diet_item b
+	CROSS JOIN main.diet_analysis a
+	ORDER BY diet_analysis_id, diet_item_id) x
+	LEFT OUTER JOIN 
+	(SELECT diet_analysis_id, diet_item_frequency, diet_item_id FROM main.wolfdiet JOIN main.diet_item USING (diet_item_id)) y
+	USING (diet_item_id, diet_analysis_id)
+	) zz JOIN main.diet_item USING (diet_item_id) 
+	ORDER BY diet_analysis_id, diet_item_id'::text,
+	'SELECT common_name FROM main.diet_item ORDER BY diet_item_id'::text) crosstab("diet_analysis_id" integer,
+"moose" double precision,
+"blackbuck" double precision,
+"american bison" double precision,
+"european bison" double precision,
+"yak" double precision,
+"cattle" double precision,
+"nilgai" double precision,
+"buffalo" double precision,
+"camel" double precision,
+"dog" double precision,
+"wolf" double precision,
+"wild goat" double precision,
+"goat" double precision,
+"markhor" double precision,
+"alpine ibex" double precision,
+"siberian ibex" double precision,
+"roe deer" double precision,
+"carnivorae" double precision,
+"elk" double precision,
+"red deer" double precision,
+"sika deer" double precision,
+"fallow deer" double precision,
+"donkey" double precision,
+"horse" double precision,
+"przewalski horse" double precision,
+"onager" double precision,
+"cat" double precision,
+"chinkara" double precision,
+"goitered gazelle" double precision,
+"crested porcupine" double precision,
+"badger" double precision,
+"musk deer" double precision,
+"raccoon dog" double precision,
+"mule deer" double precision,
+"black tailed deer" double precision,
+"white tailed deer" double precision,
+"mountain goat" double precision,
+"muskox" double precision,
+"argali" double precision,
+"sheep" double precision,
+"bighorn" double precision,
+"dall sheep" double precision,
+"snow sheep" double precision,
+"mouflon" double precision,
+"urial" double precision,
+"mongolian gazelle" double precision,
+"przewalski gazelle" double precision,
+"blue sheep" double precision,
+"wild reindeer" double precision,
+"chamois" double precision,
+"saiga" double precision,
+"wild boar" double precision,
+"pig" double precision,
+"brown bear" double precision,
+"red fox" double precision,
+"wild artiodactyla" double precision,
+"wild bovidae" double precision,
+"bird" double precision,
+"castor sp" double precision,
+"cervidae" double precision,
+"domestic ungulata" double precision,
+"fish" double precision,
+"garbage" double precision,
+"lagomorpha" double precision,
+"marmota sp" double precision,
+"mesomammals" double precision,
+"micromammals" double precision,
+"microrodents" double precision,
+"other" double precision,
+"other domestic ungulata" double precision,
+"semiaquatic rodentia" double precision,
+"undefined item" double precision,
+"vegetable fruit" double precision));
+
+										       
+										       
+										       -- CREATE SPATIALITE (run in terminal)
+-- CREATE FILE AND FIRST TABLE 
+ogr2ogr -f SQLite -dsco SPATIALITE=yes wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" main.diet_analysis
+-- CREATE OTHER TABLES 
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" main.diet_item
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" main.reference
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" main.site
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" main.wolfdiet
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_altitude_range
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_analytical_method
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_identification_method
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_source
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_temporal_scale
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_type_study
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_wolf_population
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" lu_tables.lu_wolf_subspecies
+ogr2ogr -f SQLite -update wolfdiet.sqlite PG:"dbname=wolfdiet user=postgres password=pw" env_data.world_country

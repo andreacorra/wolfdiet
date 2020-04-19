@@ -1,7 +1,7 @@
 This folder contains the SQL code to generate the main database.
 
-Following, the _preliminary_ structure of the database:  
+Following, the _current_ database structure:  
   
-![ERD](https://github.com/andreacorra/WolfDiet/blob/master/images/ERD_schema.PNG)   
+![ERD](https://github.com/andreacorra/WolfDiet/blob/master/images/ERD_wolfdiet.png)   
   
-Data structure have been modelled as shown in [datamodelr](https://github.com/bergant/datamodelr)
+The database structure have been modelled via [dbdiagram.io](https://dbdiagram.io/home)
