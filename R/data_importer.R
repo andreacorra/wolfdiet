@@ -265,6 +265,9 @@ dbSendQuery(con, "ALTER TABLE main.site
                       REFERENCES env_data.world_country (world_country_id) MATCH SIMPLE
                       ON UPDATE NO ACTION ON DELETE NO ACTION;")
 
+dbSendQuery(con, "UPDATE main.site 
+                    SET geom_centroid = ST_SetSRID(ST_MakePoint(longitude, latitude), 4326);")
+
 # dbSendQuery(con,"UPDATE main.site 
 # SET geom = ST_SetSRID(ST_MakePoint(longitude, latitude), 4326);")
 
