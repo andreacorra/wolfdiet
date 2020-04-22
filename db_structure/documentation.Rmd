@@ -206,11 +206,11 @@ In this section we show how to interact with the database through R. This covers
 
 #### 2.3.1. INSTALL WOLFDIET 
 
-<!-- Download the zip file directly from [ziptothepackage](ziptothepackage) -->
+Download the zip file directly from [https://github.com/andreacorra/wolfdiet/blob/master/data/wolfdiet.zip](https://github.com/andreacorra/wolfdiet/blob/master/data/wolfdiet.zip) 
 
 ```{R eval=FALSE}
 # Install uvaRadar with the downloaded file
-remotes::install_local('~/Downloads/wolfdiet-package.zip')
+remotes::install_local('~/Downloads/wolfdiet.zip')
 ```
 
 #### 2.3.2. LOAD PACKAGE
@@ -220,7 +220,7 @@ library(wolfdiet)
 
 #### 2.3.3. USE PACKAGE
 
-# load wolf diet data using scientific names in the columns 
+# load wolf diet data using common and scientific names in the columns
 ```{R eval=FALSE}
 data(wolfdiet)
 ```
@@ -230,17 +230,17 @@ data(wolfdiet)
 wolf_s <-wolf(tax=TRUE)
 ```
 
-# load wolf diet data using scientific names in the columns 
+# load wolf diet data using common names in the columns 
 ```{R eval=FALSE}
 wolf_c <-wolf(tax=FALSE)
 ```
 
-# load  lookup tables
+# load lookup tables
 ```{R eval=FALSE}
 data(lookup)
 ```
 
 ## <a name="references"></a> 3. References
 
-Cutler, Kirsten B; Edwards, Ross L; Taylor, Frederick W; Cheng, H; Adkins, Jess F; Gallup, Christina D; Cutler, P M; Burr, George S; Bloom, Arthur L (2003): Rapid sea-level fall and deep-ocean temperature change since the last interglacial period. Earth and Planetary Science Letters, 206(3-4), 253-271, [https://doi.org/10.1016/S0012-821X(02)01107-X](https://doi.org/10.1016/S0012-821X(02)01107-X)
+reference bla bla [doilink](doilink)
 
