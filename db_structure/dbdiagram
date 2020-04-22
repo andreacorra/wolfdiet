@@ -126,3 +126,36 @@ Table "world_country" {
   "population" "character varying"
   "geom" geometry
 }
+
+Table "diet_item_users" {
+  "diet_analysis_id" integer [pk]
+  "moose" double 
+  "blackbuck" double 
+  "..." double 
+}
+    
+Table diet_item_complete {
+  diet_analysis_id integer [pk]
+  world_country_description double 
+  wolf_population_description double 
+  wolf_subspecies_description double 
+  study_area double 
+  pack double 
+  latitude double 
+  longitude double 
+  source_id double 
+  analytical_method_description double 
+  identification_method_description double 
+  temporal_scale_description double 
+  derived_diet double 
+  sample_size double 
+  surface_area double 
+  sampling_period double 
+  time_series double 
+  spatial_effort double 
+  temporal_effort double 
+  total_effort double 
+  moose double 
+  blackbuck double 
+  "..." double
+  }
