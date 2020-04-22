@@ -14,7 +14,7 @@ The wolfdiet database is available in four different formats:
 
 # Installation R-package
 
-Download the zip file directly from this directory: [https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet.zip](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet.zip)
+Download the zip file directly from this directory: [https://github.com/andreacorra/wolfdiet/raw/master/data/rpackage/wolfdiet.zip](https://github.com/andreacorra/wolfdiet/raw/master/data/rpackage/wolfdiet.zip)
 
 Then use this file to install the R-package
 
