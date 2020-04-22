@@ -6,3 +6,10 @@
 ``` r
 remotes::install_local('~/Downloads/wolfdiet.zip')
 ``` 
+
+
+The R-package allows to load the wolfdiet data directly in R.
+This includes two tables in a ready-to-use format for diet analysis.
+
+  * **wolfdiet** table including all diet analysis
+  * **lookup** table explaining abbreviations
