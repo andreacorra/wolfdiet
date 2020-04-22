@@ -14,8 +14,8 @@ This repository includes the codes and information used to develop a **PostgreSQ
 The repository is divided in subdirectories:  
 
 * **[data](https://github.com/andreacorra/WolfDiet/tree/master/data)**: The **wolfdiet** data downloadable in four different file formats:
-  * [**csv**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_csv)
-  * [**r-package**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip) see [here](https://github.com/andreacorra/wolfdiet/tree/master/data/wolfdiet_R) for installation instructions.
+  * [**r-package**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip) The R version of the wolfdiet data view - see [here](https://github.com/andreacorra/wolfdiet/tree/master/data/wolfdiet_R) for installation instructions.
+  * [**csv**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_csv) a csv version of the wolfdiet data view - 
   * [**psql**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet.backup) The psql version of the **wolfdiet** database.
   * [**sqlite**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_sqlite/wolfdiet.sqlite) The SQLite version of the **wolfdiet** database.
 * **[database structure](https://github.com/andreacorra/WolfDiet/tree/master/db_structure)**: Database structure (SQL code used for database development);
