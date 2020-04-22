@@ -19,7 +19,7 @@ The repository is divided in subdirectories:
 * **[images](https://github.com/andreacorra/WolfDiet/tree/master/images)**: List of images used in the GitHub repository;
 * **[data](https://github.com/andreacorra/WolfDiet/tree/master/data)**: wolfdiet database downloadable in different formats
   * [**csv**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_csv)
-  * [**r-package**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip) see [here](https://github.com/andreacorra/wolfdiet/tree/master/data) for installation instructions.
+  * [**r-package**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip) see [here](https://github.com/andreacorra/wolfdiet/tree/master/data/wolfdiet_R) for installation instructions.
   * [**psql**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet.backup) **TBD**
   * [**sqlite**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_sqlite/wolfdiet.sqlite) **TBD**
 
