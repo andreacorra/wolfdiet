@@ -28,7 +28,7 @@ con <- dbConnect(drv="PostgreSQL",
 # GET WOLFDIET DATA 
 wolfdiet <-dbReadTable(con, c('main','diet_item_complete'))
 # GET LOOKUP TABLE DATA 
-query<-'SELECT \'altitude_range\' lookup, altitude_range_code code, altitude_range_description description FROM lu_tables.lu_altitude_range
+query<-'SELECT * FROM (SELECT \'altitude_range\' lookup, altitude_range_code code, altitude_range_description description FROM lu_tables.lu_altitude_range
 UNION
 (SELECT \'analytical_method\',analytical_method_code, analytical_method_description FROM lu_tables.lu_analytical_method)
 UNION
@@ -42,7 +42,8 @@ UNION
 UNION
 (SELECT \'wolf_population\', wolf_population_code, wolf_population_description FROM lu_tables.lu_wolf_population)
 UNION
-(SELECT \'wolf_subspecies\', wolf_subspecies_code, wolf_subspecies_description FROM lu_tables.lu_wolf_subspecies)'
+(SELECT \'wolf_subspecies\', wolf_subspecies_code, wolf_subspecies_description FROM lu_tables.lu_wolf_subspecies)) a 
+ORDER BY lookup, code'
 
 # WRITE AS RDA TO GITHUB 
 setwd(paste0(getwd(),'/wolfdiet/data'))
