@@ -11,13 +11,3 @@ The wolfdiet data is available in four formats:
    * **wolfdiet** table including all diet analysis
    * **lookup** table explaining abbreviations 
 4. **[csv](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_csv)** Same two tables (wolfdiet, lookup) are also provided in csv. 
-
-# Installation R-package
-
-Download the zip file directly from this directory: [https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip)
-
-Then use this file to install the R-package
-
-``` r
-remotes::install_local('~/Downloads/wolfdiet.zip')
-``` 
