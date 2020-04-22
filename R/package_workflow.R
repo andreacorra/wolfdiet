@@ -53,8 +53,8 @@ save(lookup, file='lookup.rda')
 
 # WRITE AS CSV TO GITHUB 
 setwd('../..')
-write.csv(wolfdiet,'data/wolfdiet.csv')
-write.csv(lookup,'data/lookup.csv')
+write.csv(wolfdiet,'data/wolfdiet_csv/wolfdiet.csv')
+write.csv(lookup,'data/wolfdiet_csv/lookup.csv')
 
 # UPDATE PACKAGE 
 setwd(paste0(getwd(),'/wolfdiet'))
