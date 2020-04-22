@@ -1,4 +1,4 @@
-# Dataset
+# Data 
 
 The wolfdiet data is available in four formats: 
 
