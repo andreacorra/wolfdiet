@@ -1,6 +1,6 @@
 # Dataset
 
-The wolfdiet data is available in four different formats:
+The wolfdiet data is available in four formats: 
 
 ## DATABASE
 1. **[wolfdiet.backup](https://github.com/andreacorra/wolfdiet/raw/master/data/psql)** postgresql backup file to restore the database. 
