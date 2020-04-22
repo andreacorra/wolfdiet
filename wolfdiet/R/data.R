@@ -1,0 +1,122 @@
+#' wolfdiet view
+#'
+#' @source this table compiles wolf diet from around the world - currently Eurasia.
+#' @format A data frame with columns:
+#' \describe{
+#'  \item{diet_analysis_id}{bla}
+#'  \item{world_country_description}{bla}
+#'  \item{wolf_population_description}{bla}
+#'  \item{wolf_subspecies_description}{bla}
+#'  \item{study_area}{bla}
+#'  \item{pack}{bla}
+#'  \item{latitude}{bla}
+#'  \item{longitude}{bla}
+#'  \item{source_id}{bla}
+#'  \item{analytical_method_description}{bla}
+#'  \item{identification_method_description}{bla}
+#'  \item{temporal_scale_description}{bla}
+#'  \item{derived_diet}{bla}
+#'  \item{sample_size}{bla}
+#'  \item{surface_area}{bla}
+#'  \item{sampling_period}{bla}
+#'  \item{time_series}{bla}
+#'  \item{spatial_effort}{bla}
+#'  \item{temporal_effort}{bla}
+#'  \item{total_effort}{bla}
+#'  \item{"moose_alces alces"}{Frequency of the diet item}
+#'  \item{"blackbuck_antilope cervicapra"}{Frequency of the diet item}
+#'  \item{"american bison_bison bison"}{Frequency of the diet item}
+#'  \item{"european bison_bison bonasus"}{Frequency of the diet item}
+#'  \item{"yak_bos grunniens"}{Frequency of the diet item}
+#'  \item{"cattle_bos taurus"}{Frequency of the diet item}
+#'  \item{"nilgai_boselaphus tragocamelus"}{Frequency of the diet item}
+#'  \item{"buffalo_bubalus bubalis"}{Frequency of the diet item}
+#'  \item{"camel_camelus ferus"}{Frequency of the diet item}
+#'  \item{"dog_canis familiaris"}{Frequency of the diet item}
+#'  \item{"wolf_canis lupus"}{Frequency of the diet item}
+#'  \item{"wild goat_capra aegagrus"}{Frequency of the diet item}
+#'  \item{"goat_capra aegagrus hircus"}{Frequency of the diet item}
+#'  \item{"markhor_capra falconeri"}{Frequency of the diet item}
+#'  \item{"alpine ibex_capra ibex"}{Frequency of the diet item}
+#'  \item{"siberian ibex_capra sibirica"}{Frequency of the diet item}
+#'  \item{"roe deer_capreolus capreolus"}{Frequency of the diet item}
+#'  \item{carnivorae_carnivorae}{Frequency of the diet item}
+#'  \item{"elk_cervus elaphus canadensis"}{Frequency of the diet item}
+#'  \item{"red deer_cervus elaphus elaphus"}{Frequency of the diet item}
+#'  \item{"sika deer_cervus nippon"}{Frequency of the diet item}
+#'  \item{"fallow deer_dama dama"}{Frequency of the diet item}
+#'  \item{"donkey_equus africanus asinus"}{Frequency of the diet item}
+#'  \item{"horse_equus ferus caballus"}{Frequency of the diet item}
+#'  \item{"przewalski horse_equus ferus przewalskii"}{Frequency of the diet item}
+#'  \item{"onager_equus hemionus"}{Frequency of the diet item}
+#'  \item{"cat_felis catus"}{Frequency of the diet item}
+#'  \item{"chinkara_gazella bennettii"}{Frequency of the diet item}
+#'  \item{"goitered gazelle_gazella subgutturosa"}{Frequency of the diet item}
+#'  \item{"crested porcupine_hystrix cristata"}{Frequency of the diet item}
+#'  \item{"badger_meles meles"}{Frequency of the diet item}
+#'  \item{"musk deer_moschus sp"}{Frequency of the diet item}
+#'  \item{"raccoon dog_nyctereutes procyonoides"}{Frequency of the diet item}
+#'  \item{"mule deer_odocoileus hemionus"}{Frequency of the diet item}
+#'  \item{"black tailed deer_odocoileus hemionus columbianus"}{Frequency of the diet item}
+#'  \item{"white tailed deer_odocoileus virginianus"}{Frequency of the diet item}
+#'  \item{"mountain goat_oreamnos americanus"}{Frequency of the diet item}
+#'  \item{"muskox_ovibos moschatus"}{Frequency of the diet item}
+#'  \item{"argali_ovis ammon"}{Frequency of the diet item}
+#'  \item{"sheep_ovis aries"}{Frequency of the diet item}
+#'  \item{"bighorn_ovis canadensis"}{Frequency of the diet item}
+#'  \item{"dall sheep_ovis dalli"}{Frequency of the diet item}
+#'  \item{"snow sheep_ovis nivicola"}{Frequency of the diet item}
+#'  \item{"mouflon_ovis orientalis"}{Frequency of the diet item}
+#'  \item{"urial_ovis orientalis vignei"}{Frequency of the diet item}
+#'  \item{"mongolian gazelle_procapra gutturosa"}{Frequency of the diet item}
+#'  \item{"przewalski gazelle_procapra przewalskii"}{Frequency of the diet item}
+#'  \item{"blue sheep_pseudois nayaur"}{Frequency of the diet item}
+#'  \item{"wild reindeer_rangifer tarandus"}{Frequency of the diet item}
+#'  \item{"chamois_rupicapra rupicapra"}{Frequency of the diet item}
+#'  \item{"saiga_saiga tatarica"}{Frequency of the diet item}
+#'  \item{"wild boar_sus scrofa"}{Frequency of the diet item}
+#'  \item{"pig_sus scrofa domesticus"}{Frequency of the diet item}
+#'  \item{"brown bear_ursus arctos"}{Frequency of the diet item}
+#'  \item{"red fox_vulpes vulpes"}{Frequency of the diet item}
+#'  \item{"wild artiodactyla_wild artiodactyla"}{Frequency of the diet item}
+#'  \item{"wild bovidae_wild bovidae"}{Frequency of the diet item}
+#'  \item{bird}{Frequency of the diet item}
+#'  \item{"castor sp"}{Frequency of the diet item}
+#'  \item{cervidae}{Frequency of the diet item}
+#'  \item{"domestic ungulata"}{Frequency of the diet item}
+#'  \item{fish}{Frequency of the diet item}
+#'  \item{garbage}{Frequency of the diet item}
+#'  \item{lagomorpha}{Frequency of the diet item}
+#'  \item{"marmota sp"}{Frequency of the diet item}
+#'  \item{mesomammals}{Frequency of the diet item}
+#'  \item{micromammals}{Frequency of the diet item}
+#'  \item{microrodents}{Frequency of the diet item}
+#'  \item{other}{Frequency of the diet item}
+#'  \item{"other domestic ungulata"}{Frequency of the diet item}
+#'  \item{"semiaquatic rodentia"}{Frequency of the diet item}
+#'  \item{"undefined item"}{Frequency of the diet item}
+#'  \item{"vegetable fruit"}{Frequency of the diet item}
+#'
+#' }
+#' @examples
+#' \dontrun{
+#'  wolfdiet
+#' }
+"wolfdiet"
+
+
+#' lookup tables
+#'
+#' @source this table includes the full description of the codes used in the wolfdiet table.
+#' @format A data frame with columns:
+#' \describe{
+#'  \item{lookup}{lookup table name}
+#'  \item{code}{code}
+#'  \item{description}{description of the code}
+#'
+#' }
+#' @examples
+#' \dontrun{
+#'  lookup
+#' }
+"lookup"
