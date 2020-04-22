@@ -8,8 +8,8 @@ The wolfdiet database is available in four different formats:
 
 ## FLAT FILE 
 3. **wolfdiet.zip** R-data package including two tables in a ready-to-use format for diet analysis.
-  * **wolfdiet** table including all diet analysis
-  * **lookup** table explaining abbreviations 
+   * **wolfdiet** table including all diet analysis
+   * **lookup** table explaining abbreviations 
 4. **csv** Same two tables (wolfdiet, lookup) are also provided in csv. 
 
 # Installation R-package
