@@ -71,7 +71,3 @@ lookup
 
 wolfdiet <- wolf(tax=TRUE)
 wolfdiet <- wolf(tax=FALSE)
-
-
-
-
