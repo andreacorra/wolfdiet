@@ -1,13 +1,16 @@
 # Dataset
 
-The wolfdiet database is available in different formats:
+The wolfdiet database is available in four different formats:
 
-* **wolfdiet.backup** postgresql backup file to restore the database. 
-* **wolfdiet.sqlite** sqlite database.  
-* **wolfdiet.zip** R-data package including two tables in a ready-to-use format for diet analysis.
+## DATABASE
+1. **wolfdiet.backup** postgresql backup file to restore the database. 
+2. **wolfdiet.sqlite** sqlite database.  
+
+## FLAT FILE 
+3. **wolfdiet.zip** R-data package including two tables in a ready-to-use format for diet analysis.
   * **wolfdiet** table including all diet analysis
   * **lookup** table explaining abbreviations 
-* **csv** Same two tables (wolfdiet, lookup) are also provided in csv. 
+4. **csv** Same two tables (wolfdiet, lookup) are also provided in csv. 
 
 # Installation R-package
 
