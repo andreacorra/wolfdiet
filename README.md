@@ -17,6 +17,7 @@ The repository is divided in subdirectories:
 * **[database structure](https://github.com/andreacorra/WolfDiet/tree/master/db_structure)**: Database structure (SQL code used for database development);
 * **[bibliography](https://github.com/andreacorra/WolfDiet/tree/master/bibliography)**: List of articles reviewed and currently added in the database;
 * **[images](https://github.com/andreacorra/WolfDiet/tree/master/images)**: List of images used in the GitHub repository;
+* **[data](https://github.com/andreacorra/WolfDiet/tree/master/data)**: wolfdiet database in different formats. 
 
 A more comprehensive description of the database is available at the [wiki](https://github.com/andreacorra/WolfDiet/wiki) page. For a better understanding of the reasons that led to this work, check the [conference poster](https://www.researchgate.net/publication/310561849_Food_habits_of_wolf_in_Eurasia_a_proposal_for_an_open_access_database) presented at the 8th International Zoological Congress of “Grigore Antipa” Museum, Romania.
 
