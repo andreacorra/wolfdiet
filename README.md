@@ -13,15 +13,15 @@ This repository includes the codes and information used to develop a **PostgreSQ
 
 The repository is divided in subdirectories:  
 
-* **[wolfdiet DB](https://github.com/andreacorra/WolfDiet/tree/master/wolfdiet_db)**: The SQLite version of the **wolfdiet** database;
+* **[data](https://github.com/andreacorra/WolfDiet/tree/master/data)**: The **wolfdiet** data downloadable in four different file formats:
+  * [**psql**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet.backup) version of the wolfdiet database.
+  * [**sqlite**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_sqlite/wolfdiet.sqlite) version of the wolfdiet database.
+  * [**csv**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_csv) version of the wolfdiet data view.
+  * [**R**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip) package of the wolfdiet data view - see [here](https://github.com/andreacorra/wolfdiet/tree/master/data/wolfdiet_R) for installation instructions.
 * **[database structure](https://github.com/andreacorra/WolfDiet/tree/master/db_structure)**: Database structure (SQL code used for database development);
 * **[bibliography](https://github.com/andreacorra/WolfDiet/tree/master/bibliography)**: List of articles reviewed and currently added in the database;
 * **[images](https://github.com/andreacorra/WolfDiet/tree/master/images)**: List of images used in the GitHub repository;
-* **[data](https://github.com/andreacorra/WolfDiet/tree/master/data)**: wolfdiet database downloadable in different formats
-  * [**csv**](https://github.com/andreacorra/WolfDiet/tree/master/data/wolfdiet.csv)
-  * [**r-package**](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet.zip) see [here](https://github.com/andreacorra/wolfdiet/tree/master/data) for installation instructions.
-  * [**backup**] **TBD**
-  * [**sqlite**] **TBD**
+
 
 A more comprehensive description of the database is available at the [wiki](https://github.com/andreacorra/WolfDiet/wiki) page. For a better understanding of the reasons that led to this work, check the [conference poster](https://www.researchgate.net/publication/310561849_Food_habits_of_wolf_in_Eurasia_a_proposal_for_an_open_access_database) presented at the 8th International Zoological Congress of “Grigore Antipa” Museum, Romania.
 
