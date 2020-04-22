@@ -1,6 +1,6 @@
 # Installation R-package
 
-Download the zip file directly https://github.com/jedgroev/piac/raw/master/wolfdiet/wolfdiet.zip
+Download the zip file directly from this directory: (https://github.com/jedgroev/wolfdiet/raw/master/data/wolfdiet.zip
 
 Then use this file to install the R-package
 
