@@ -299,7 +299,7 @@ CREATE TABLE main.wolfdiet
   diet_item_id integer, --
   diet_item_frequency double precision,
   insert_timestamp timestamp with time zone DEFAULT now(),
-  update_timestamp timestamp with time zone, 
+  update_timestamp timestamp with time zone DEFAULT now(), 
   notes text,
   responsible character varying,
   reference_id integer, --

@@ -124,8 +124,8 @@ reference_db <-
     read_sheet(
       "docs.google.com/spreadsheets/d/1WyUO1wd-83MIOSz3lB4PedWf_xiNyVsip6IniGZpbmU/edit#gid=1764939781"
     ))
+reference_db <- reference_db[, !names(reference_db) %in% c("insert_timestamp", "update_timestamp")]
 pgInsert(con, name = c("main", "reference"), reference_db)
-
 
 
 
@@ -142,11 +142,11 @@ diet_item_db <-
     ))
 
 diet_item_db <- 
-    diet_item_db[ , c("diet_item_id", "common_name",  "species_name",
+    diet_item_db[ , c("diet_item_id", "common_name",  "taxon",
                      "distribution_geom", "iucn_status", "year_assessment",
                      "average_weight_kg", "insert_timestamp", "update_timestamp",
                      "notes")]
-
+diet_item_db <- diet_item_db[, !names(diet_item_db) %in% c("insert_timestamp", "update_timestamp")]
 pgInsert(con, name = c("main", "diet_item"), diet_item_db)
 
 
@@ -159,7 +159,7 @@ pgInsert(con, name = c("main", "diet_item"), diet_item_db)
 
 
 ## Load the shapefile "world countries" for gathering information about the sites
-world_country <- readOGR("~/Desktop/wolfdiet/spatial_data/world_country/world_country.shp")
+world_country <- readOGR("~/Desktop/wolfdiet/data/spatial_data/world_country.shp")
 
 head(world_country)
 
@@ -261,6 +261,7 @@ site_db <- site_db[!duplicated(site_db$site_id),]
 
 # Insert new data into the DB
 # dbSendQuery(con, "DELETE FROM main.site;")
+site_db <- site_db[, !names(site_db) %in% c("insert_timestamp", "update_timestamp")]
 pgInsert(con, name = c("main", "site"), site_db, partial.match = TRUE)
 
 dbSendQuery(con, "ALTER TABLE main.site
@@ -289,6 +290,7 @@ diet_analysis_db <-
     ))
 
 diet_analysis_db$surface_area <- as.integer(diet_analysis_db$surface_area)
+diet_analysis_db <- diet_analysis_db[, !names(diet_analysis_db) %in% c("insert_timestamp", "update_timestamp")]
 pgInsert(con, name = c("main", "diet_analysis"), diet_analysis_db)
 
 
@@ -340,6 +342,7 @@ head(wolfdiet_db)
 str(wolfdiet_db)
 
 
+wolfdiet_db <- wolfdiet_db[, !names(wolfdiet_db) %in% c("insert_timestamp", "update_timestamp")]
 pgInsert(con, name = c("main", "wolfdiet"), wolfdiet_db)
 # dbSendQuery(con, "DELETE FROM main.wolfdiet;")
 
