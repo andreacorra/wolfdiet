@@ -204,3 +204,4 @@ COMMENT ON TABLE lu_tables.lu_altitude_range IS 'look up table with information 
   COMMENT ON COLUMN lu_tables.lu_altitude_range.altitude_range_id IS 'database identifier for the altitudinal range in meters';
   COMMENT ON COLUMN lu_tables.lu_altitude_range.altitude_range_code IS 'code for the altitudinal range in meters';
   COMMENT ON COLUMN lu_tables.lu_altitude_range.altitude_range_description IS 'description of the altitudinal range in meters';
+
