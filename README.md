@@ -25,6 +25,6 @@ The repository is divided in subdirectories:
 
 
 A comprehensive description of the database is available at the [WIKI](https://github.com/andreacorra/WolfDiet/wiki) page. For a better understanding of the reasons that led to this work, check the [conference poster](https://www.researchgate.net/publication/310561849_Food_habits_of_wolf_in_Eurasia_a_proposal_for_an_open_access_database) presented at the 8th International Zoological Congress of “Grigore Antipa” Museum, Romania.
-
-![CC](https://github.com/andreacorra/WolfDiet/blob/master/images/by-nc-sa.eu.svg)  
-[**Full License**](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+  
+  
+![CC](https://github.com/andreacorra/WolfDiet/blob/master/images/by-nc-sa.eu.svg) [**Full License**](https://creativecommons.org/licenses/by-nc-sa/4.0/)
