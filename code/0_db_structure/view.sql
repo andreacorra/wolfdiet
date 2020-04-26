@@ -75,7 +75,7 @@ CREATE OR REPLACE VIEW main.diet_item_users AS
     crosstab."semiaquatic rodentia_semiaquatic rodentia",
     crosstab."undefined item_undefined item",
     crosstab."vegetable fruit_vegetable fruit"
-   FROM crosstab($bb$SELECT diet_analysis_id,(common_name || '_' || species_name) comsp,diet_item_frequency FROM (
+   FROM crosstab($bb$SELECT diet_analysis_id,(common_name || '_' || taxon) comsp,diet_item_frequency FROM (
 	SELECT diet_analysis_id, diet_item_id,diet_item_frequency FROM 
 	(SELECT diet_analysis_id, diet_item_id
 	FROM main.diet_item b
@@ -85,7 +85,7 @@ CREATE OR REPLACE VIEW main.diet_item_users AS
 	(SELECT diet_analysis_id, diet_item_frequency, diet_item_id FROM main.wolfdiet JOIN main.diet_item USING (diet_item_id)) y
 	USING (diet_item_id, diet_analysis_id)
 	) zz JOIN main.diet_item USING (diet_item_id) 
-	ORDER BY diet_analysis_id, diet_item_id::text$bb$, $aa$SELECT CASE WHEN species_name IS NULL THEN common_name ELSE (common_name || '_' || species_name) END comsp FROM main.diet_item ORDER BY diet_item_id$aa$::text) crosstab(diet_analysis_id integer, 
+	ORDER BY diet_analysis_id, diet_item_id::text$bb$, $aa$SELECT CASE WHEN taxon IS NULL THEN common_name ELSE (common_name || '_' || taxon) END comsp FROM main.diet_item ORDER BY diet_item_id$aa$::text) crosstab(diet_analysis_id integer, 
     "moose_alces alces" double precision, 
     "blackbuck_antilope cervicapra" double precision, 
     "american bison_bison bison" double precision, 
@@ -184,7 +184,8 @@ CREATE OR REPLACE VIEW main.diet_item_complete AS
 	spatial_effort,
 	temporal_effort,
 	total_effort,
-	moose, blackbuck, "american bison", "european bison", yak, cattle, nilgai, buffalo, camel, dog, wolf, "wild goat", goat, markhor, "alpine ibex", "siberian ibex", "roe deer", carnivorae, elk, "red deer", "sika deer", "fallow deer", donkey, horse, "przewalski horse", onager, cat, chinkara, "goitered gazelle", "crested porcupine", badger, "musk deer", "raccoon dog", "mule deer", "black tailed deer", "white tailed deer", "mountain goat", muskox, argali, sheep, bighorn, "dall sheep", "snow sheep", mouflon, urial, "mongolian gazelle", "przewalski gazelle", "blue sheep", "wild reindeer", chamois, saiga, "wild boar", pig, "brown bear", "red fox", "wild artiodactyla", "wild bovidae", bird, "castor sp", cervidae, "domestic ungulata", fish, garbage, lagomorpha, "marmota sp", mesomammals, micromammals, microrodents, other, "other domestic ungulata", "semiaquatic rodentia", "undefined item", "vegetable fruit"
+	"moose_alces alces", "blackbuck_antilope cervicapra", "american bison_bison bison", "european bison_bison bonasus", "yak_bos grunniens", "cattle_bos taurus", "nilgai_boselaphus tragocamelus", "buffalo_bubalus bubalis", "camel_camelus ferus", "dog_canis familiaris", "wolf_canis lupus", "wild goat_capra aegagrus", "goat_capra aegagrus hircus", "markhor_capra falconeri", "alpine ibex_capra ibex", "siberian ibex_capra sibirica", "roe deer_capreolus capreolus", "carnivorae_carnivorae", "elk_cervus elaphus canadensis", "red deer_cervus elaphus elaphus", "sika deer_cervus nippon", "fallow deer_dama dama", "donkey_equus africanus asinus", "horse_equus ferus caballus", "przewalski horse_equus ferus przewalskii", "onager_equus hemionus", "cat_felis catus", "chinkara_gazella bennettii", "goitered gazelle_gazella subgutturosa", "crested porcupine_hystrix cristata", "badger_meles meles", "musk deer_moschus sp", "raccoon dog_nyctereutes procyonoides", "mule deer_odocoileus hemionus", "black tailed deer_odocoileus hemionus columbianus", "white tailed deer_odocoileus virginianus", "mountain goat_oreamnos americanus", "muskox_ovibos moschatus", "argali_ovis ammon", "sheep_ovis aries", "bighorn_ovis canadensis", "dall sheep_ovis dalli", "snow sheep_ovis nivicola", "mouflon_ovis orientalis", "urial_ovis orientalis vignei", "mongolian gazelle_procapra gutturosa", "przewalski gazelle_procapra przewalskii", "blue sheep_pseudois nayaur", "wild reindeer_rangifer tarandus", "chamois_rupicapra rupicapra", "saiga_saiga tatarica", "wild boar_sus scrofa", "pig_sus scrofa domesticus", "brown bear_ursus arctos", "red fox_vulpes vulpes", "wild artiodactyla_wild artiodactyla", "wild bovidae_wild bovidae", "bird_aves", "castor sp_castor sp", "cervidae_cervidae", "domestic ungulata_domestic ungulata", "fish_fish", "garbage_garbage", "lagomorpha_lagomorpha", "marmota sp_marmota sp", "mesomammals_mesomammals", "micromammals_micromammals", "microrodents_microrodents", "other_other", "other domestic ungulata_other domestic ungulata", "semiaquatic rodentia_semiaquatic rodentia", "undefined item_undefined item","vegetable fruit_vegetable fruit",
+	responsible
 		FROM main.diet_item_users 
 		JOIN main.wolfdiet USING (diet_analysis_id)
 		JOIN main.diet_analysis
@@ -193,8 +194,8 @@ CREATE OR REPLACE VIEW main.diet_item_complete AS
 		JOIN lu_tables.lu_wolf_population using (wolf_population_id) 
 		JOIN lu_tables.lu_source using (source_id) 
 		JOIN lu_tables.lu_analytical_method using (analytical_method_id) 
-		--JOIN lu_tables.lu_temporal_scale using (temporal_scale_id) 
+		JOIN lu_tables.lu_temporal_scale using (temporal_scale_id) 
 		JOIN env_data.world_country using (world_country_id) 
 		JOIN lu_tables.lu_wolf_subspecies using (wolf_subspecies_id)
-		--JOIN lu_tables.lu_identification_method using (identification_method_id);
-
+		JOIN lu_tables.lu_identification_method using (identification_method_id);
+		
