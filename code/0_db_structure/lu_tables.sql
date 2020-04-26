@@ -4,6 +4,7 @@
 CREATE TABLE lu_tables.lu_source
 (
   source_id integer NOT NULL,
+  source_code character varying,
   source_description character varying,
   CONSTRAINT source_id_pk PRIMARY KEY (source_id)
 )
@@ -17,6 +18,7 @@ GRANT SELECT ON TABLE lu_tables.lu_source TO users;
 
 COMMENT ON TABLE lu_tables.lu_source IS 'look up table with information on the type of samples used in the analyses';
   COMMENT ON COLUMN lu_tables.lu_source.source_id IS 'database identifier for the type of samples used in the analyses';
+  COMMENT ON COLUMN lu_tables.lu_source.source_code IS 'code for the type of samples used in the analyses';
   COMMENT ON COLUMN lu_tables.lu_source.source_description IS 'description of the type of samples used in the analyses';
 
 
@@ -28,6 +30,7 @@ COMMENT ON TABLE lu_tables.lu_source IS 'look up table with information on the t
 CREATE TABLE lu_tables.lu_analytical_method
 (
   analytical_method_id integer NOT NULL,
+  analytical_method_code character varying,
   analytical_method_description character varying,
   CONSTRAINT analytical_method_id_pk PRIMARY KEY (analytical_method_id)
 )
@@ -41,6 +44,7 @@ GRANT SELECT ON TABLE lu_tables.lu_analytical_method TO users;
 
 COMMENT ON TABLE lu_tables.lu_analytical_method IS 'look up table with information on the analytical method';
   COMMENT ON COLUMN lu_tables.lu_analytical_method.analytical_method_id IS 'database identifier for the analytical method';
+  COMMENT ON COLUMN lu_tables.lu_analytical_method.analytical_method_code IS 'code for the analytical method';
   COMMENT ON COLUMN lu_tables.lu_analytical_method.analytical_method_description IS 'description of the analytical method';
 
 
@@ -52,6 +56,7 @@ COMMENT ON TABLE lu_tables.lu_analytical_method IS 'look up table with informati
 CREATE TABLE lu_tables.lu_identification_method
 (
   identification_method_id integer NOT NULL,
+  identification_method_code character varying,
   identification_method_description character varying,
   CONSTRAINT identification_method_id_pk PRIMARY KEY (identification_method_id)
 )
@@ -65,6 +70,7 @@ GRANT SELECT ON TABLE lu_tables.lu_identification_method TO users;
 
 COMMENT ON TABLE lu_tables.lu_identification_method IS 'look up table with information on the identification method';
   COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_id IS 'database identifier for the identification method';
+  COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_code IS 'code for of the identification method';
   COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_description IS 'description of the identification method';
 
 
@@ -76,6 +82,7 @@ COMMENT ON TABLE lu_tables.lu_identification_method IS 'look up table with infor
 CREATE TABLE lu_tables.lu_temporal_scale
 (
   temporal_scale_id integer NOT NULL,
+  temporal_scale_code character varying,
   temporal_scale_description character varying,
   CONSTRAINT temporal_scale_id_pk PRIMARY KEY (temporal_scale_id)
 )
@@ -89,6 +96,7 @@ GRANT SELECT ON TABLE lu_tables.lu_temporal_scale TO users;
 
 COMMENT ON TABLE lu_tables.lu_temporal_scale IS 'look up table with information on the temporal scale';
   COMMENT ON COLUMN lu_tables.lu_temporal_scale.temporal_scale_id IS 'database identifier for the temporal scale';
+  COMMENT ON COLUMN lu_tables.lu_temporal_scale.temporal_scale_code IS 'code for the temporal scale';
   COMMENT ON COLUMN lu_tables.lu_temporal_scale.temporal_scale_description IS 'description of the temporal scale';
 
 
@@ -100,6 +108,7 @@ COMMENT ON TABLE lu_tables.lu_temporal_scale IS 'look up table with information 
 CREATE TABLE lu_tables.lu_type_study
 (
   type_study_id integer NOT NULL,
+  type_study_code character varying,
   type_study_description character varying,
   CONSTRAINT type_study_id_pk PRIMARY KEY (type_study_id)
 )
@@ -113,7 +122,8 @@ GRANT SELECT ON TABLE lu_tables.lu_type_study TO users;
 
 COMMENT ON TABLE lu_tables.lu_type_study IS 'look up table with the information on the type of study performed';
   COMMENT ON COLUMN lu_tables.lu_type_study.type_study_id IS 'database identifier for the type of study performed';
-  COMMENT ON COLUMN lu_tables.lu_type_study.type_study_description IS 'description of the type of study performed (scientific paper, thesis, etc)';
+  COMMENT ON COLUMN lu_tables.lu_type_study.type_study_code IS 'code for the type of study performed';
+  COMMENT ON COLUMN lu_tables.lu_type_study.type_study_description IS 'description of the type of study performed';
 
 
 
@@ -124,6 +134,7 @@ COMMENT ON TABLE lu_tables.lu_type_study IS 'look up table with the information 
 CREATE TABLE lu_tables.lu_wolf_population
 (
   wolf_population_id integer NOT NULL,
+  wolf_population_code character varying,
   wolf_population_description character varying,
   CONSTRAINT wolf_population_id_pk PRIMARY KEY (wolf_population_id)
 )
@@ -137,6 +148,7 @@ GRANT SELECT ON TABLE lu_tables.lu_wolf_population TO users;
 
 COMMENT ON TABLE lu_tables.lu_wolf_population IS 'look up table with information on the wolf population';
   COMMENT ON COLUMN lu_tables.lu_wolf_population.wolf_population_id IS 'database identifier for the wolf population';
+  COMMENT ON COLUMN lu_tables.lu_wolf_population.wolf_population_code IS 'code for the wolf population';
   COMMENT ON COLUMN lu_tables.lu_wolf_population.wolf_population_description IS 'description of the wolf population';
 
 
@@ -148,6 +160,7 @@ COMMENT ON TABLE lu_tables.lu_wolf_population IS 'look up table with information
 CREATE TABLE lu_tables.lu_wolf_subspecies
 (
   wolf_subspecies_id integer NOT NULL,
+  wolf_subspecies_code character varying,
   wolf_subspecies_description character varying,
   average_weight_kg integer,
   CONSTRAINT wolf_subspecies_id_pk PRIMARY KEY (wolf_subspecies_id)
@@ -162,6 +175,7 @@ GRANT SELECT ON TABLE lu_tables.lu_wolf_subspecies TO users;
 
 COMMENT ON TABLE lu_tables.lu_wolf_subspecies IS 'look up table with information on the wolf subspecies';
   COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.wolf_subspecies_id IS 'database identifier for the wolf subspecies';
+  COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.wolf_subspecies_code IS 'code for the wolf subspecies';
   COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.wolf_subspecies_description IS 'description of the wolf subspecies';
   COMMENT ON COLUMN lu_tables.lu_wolf_subspecies.average_weight_kg  IS 'average weight of the subspecies in kilograms';
 
@@ -174,6 +188,7 @@ COMMENT ON TABLE lu_tables.lu_wolf_subspecies IS 'look up table with information
 CREATE TABLE lu_tables.lu_altitude_range
 (
   altitude_range_id integer NOT NULL,
+  altitude_range_code character varying,
   altitude_range_description character varying,
   CONSTRAINT altitude_range_id_pk PRIMARY KEY (altitude_range_id)
 )
@@ -187,4 +202,5 @@ GRANT SELECT ON TABLE lu_tables.lu_altitude_range TO users;
 
 COMMENT ON TABLE lu_tables.lu_altitude_range IS 'look up table with information on the altitudinal range';
   COMMENT ON COLUMN lu_tables.lu_altitude_range.altitude_range_id IS 'database identifier for the altitudinal range in meters';
+  COMMENT ON COLUMN lu_tables.lu_altitude_range.altitude_range_code IS 'code for the altitudinal range in meters';
   COMMENT ON COLUMN lu_tables.lu_altitude_range.altitude_range_description IS 'description of the altitudinal range in meters';

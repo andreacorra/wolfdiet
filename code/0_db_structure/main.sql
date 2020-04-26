@@ -222,7 +222,7 @@ CREATE TRIGGER update_timestamp
 CREATE TABLE main.diet_item(
   diet_item_id serial NOT NULL,
   common_name text,
-  species_name text,
+  taxon text,
   distribution_geom geometry,
   iucn_status text,
   year_assessment integer,
@@ -244,7 +244,7 @@ GRANT SELECT ON TABLE main.diet_item TO users;
 COMMENT ON TABLE main.diet_item IS 'Dimension table with information on the diet item';
   COMMENT ON COLUMN main.diet_item.diet_item_id IS 'database dentifier for the diet item';
   COMMENT ON COLUMN main.diet_item.common_name IS 'common name of the diet item';
-  COMMENT ON COLUMN main.diet_item.species_name IS 'species name (taxonomic classification)';
+  COMMENT ON COLUMN main.diet_item.taxon IS 'lower taxonomic classification of the diet item';
   COMMENT ON COLUMN main.diet_item.distribution_geom IS 'geometry of the species distribution range (based on iucn)';
   COMMENT ON COLUMN main.diet_item.iucn_status IS 'iucn red list assessment';
   COMMENT ON COLUMN main.diet_item.year_assessment IS 'year of the iucn red list assessment';
