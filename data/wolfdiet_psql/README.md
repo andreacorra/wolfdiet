@@ -33,7 +33,7 @@ You can find **create_db** and **pg_restore** in the bin of your postgresql inst
 -- create database
 c:\program files\PostgreSQL\x.x\bin\createdb.exe wolfdiet -U postgres
 -- restore database 
-pg_restore.exe --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/Downloads/wolfdiet_0-2-0.backup
+pg_restore.exe --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~\Downloads\wolfdiet_0-2-0.backup
 ``` 
 
 # Usage
