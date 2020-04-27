@@ -67,7 +67,7 @@ GRANT ALL ON TABLE main.diet_analysis TO postgres;
 GRANT SELECT ON TABLE main.diet_analysis TO users;
 
 COMMENT ON TABLE main.diet_analysis IS 'Dimension table with information on analysis used to calculate the diet';
-  COMMENT ON COLUMN main.diet_analysis.diet_analysis_id IS 'database identifier for type of analysis used to calculate the diet';
+  COMMENT ON COLUMN main.diet_analysis.diet_analysis_id IS 'database identifier for the analysis used to calculate the diet';
   COMMENT ON COLUMN main.diet_analysis.source_id IS 'database identifier for type of samples used in the analyses';
   COMMENT ON COLUMN main.diet_analysis.analytical_method_id IS 'database identifier for the analytical method';
   COMMENT ON COLUMN main.diet_analysis.derived_diet IS 'if TRUE, diet calculated using raw data in the article';

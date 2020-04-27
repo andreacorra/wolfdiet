@@ -70,7 +70,7 @@ GRANT SELECT ON TABLE lu_tables.lu_identification_method TO users;
 
 COMMENT ON TABLE lu_tables.lu_identification_method IS 'look up table with information on the identification method';
   COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_id IS 'database identifier for the identification method';
-  COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_code IS 'code for of the identification method';
+  COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_code IS 'code for the identification method';
   COMMENT ON COLUMN lu_tables.lu_identification_method.identification_method_description IS 'description of the identification method';
 
 

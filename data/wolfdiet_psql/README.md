@@ -19,11 +19,27 @@ Tables are combined and stored in a user-friendly format provided as **VIEWS**
 1. Download the [backup](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet_0-2-0.backup) 
 2. Open a terminal 
 3. Use the following command-line to restore the backup.
-
+  
 ## UNIX (macOS/Linux)
+
 ``` sql
--- create database
+-- create the database from terminal or from psql 
+
+-- From terminal 
 createdb wolfdiet -U postgres
+
+-- From psql 
+-- start psql
+psql -U postgres
+-- create database
+CREATE DATABASE wolfdiet 
+ WITH OWNER = postgres 
+      ENCODING = 'UTF8' 
+      TABLESPACE = pg_default 
+      LC_COLLATE = 'en_US.UTF-8' 
+      LC_CTYPE = 'en_US.UTF-8' 
+      CONNECTION LIMIT = -1;      
+
 -- restore database 
 pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/Downloads/wolfdiet_0-2-0.backup
 ``` 
@@ -31,8 +47,23 @@ pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/
 ## Windows
 In Windows you need to provide the file path and file extension of the functions that are used to restore the database. You can find **create_db** and **pg_restore** in the bin of your postgresql installation. Fill the installed postgresql version in the **'x.x'**.
 ``` sql
--- create database
+-- create the database from terminal or from psql 
+
+-- From terminal 
 c:\program files\PostgreSQL\x.x\bin\createdb.exe wolfdiet -U postgres
+
+-- From psql 
+-- start psql 
+c:\program files\PostgreSQL\x.x\bin\psql.exe -U postgres
+-- create database
+CREATE DATABASE wolfdiet 
+ WITH OWNER = postgres 
+      ENCODING = 'UTF8' 
+      TABLESPACE = pg_default 
+      LC_COLLATE = 'en_US.UTF-8' 
+      LC_CTYPE = 'en_US.UTF-8' 
+      CONNECTION LIMIT = -1;      
+
 -- restore database 
 pg_restore.exe --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~\Downloads\wolfdiet_0-2-0.backup
 ``` 
