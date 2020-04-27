@@ -8,8 +8,8 @@ Diet analysis of the world's wolves (*Canis lupus*)
 
 
 ![Wolf Prey Spectrum](https://github.com/andreacorra/WolfDiet/blob/master/images/wolf_prey_spectrum.png)
-Artist: _Andrea Gazzola_
-
+Artist: _Andrea Gazzola_  
+<br/><br/>  
 This repository includes the codes and information used to develop a **PostgreSQL Database** that contains studies on feeding ecology of wolf across its distribution range. The database is Open Access and is available for use under the term of the Creative Commons (CC BY-NC-SA 4.0, see Full License below). The main objective is to enable researchers to engage in data collection and to promote collaboration among Asian, European and American researchers. Scientists from Romania, Italy and the Netherlands are currently working together to create the database. This work's preprint will later be published in [bioRxiv](https://www.biorxiv.org/).   
 
 The repository is divided in subdirectories:  
