@@ -22,8 +22,6 @@ The repository is divided in subdirectories:
   * [psql](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet.backup) version of the wolfdiet database.
   * [sqlite](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_sqlite/wolfdiet.sqlite) version of the wolfdiet database.
 * **[images](https://github.com/andreacorra/WolfDiet/tree/master/images)**: List of images used in this repository;  
-* **[wolfdiet](https://github.com/andreacorra/WolfDiet/tree/master/wolfdiet)**: The R package that can be used to download data;
-
 
 A comprehensive description of the database is available at the [WIKI](https://github.com/andreacorra/WolfDiet/wiki) page. For a better understanding of the reasons that led to this work, check the [conference poster](https://www.researchgate.net/publication/310561849_Food_habits_of_wolf_in_Eurasia_a_proposal_for_an_open_access_database) presented at the 8th International Zoological Congress of “Grigore Antipa” Museum, Romania.
   
