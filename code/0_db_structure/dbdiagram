@@ -1,0 +1,161 @@
+Table "diet_analysis" {
+  "diet_analysis_id" integer [pk]
+  "source_id" integer [ref: > lu_source.source_id]
+  "analytical_method_id" integer [ref: > lu_analytical_method.analytical_method_id]
+  "identification_method_id" integer [ref: > lu_identification_method.identification_method_id]
+  "temporal_scale_id" integer [ref: > lu_temporal_scale.temporal_scale_id]
+  "derived_diet" boolean
+  "sample_size" integer
+  "surface_area" integer
+  "sampling_period" "character varying"
+  "time_series" integer
+  "spatial_effort" double
+  "temporal_effort" double
+  "total_effort" integer
+  "insert_timestamp" timestamp [default: `now()`]
+  "update_timestamp" timestamp [default: `now()`]
+  "notes" text
+}
+
+Table "diet_item" {
+  "diet_item_id" integer [pk]
+  "common_name" text
+  "species_name" text
+  "distribution_geom" geometry
+  "iucn_status" text
+  "year_assessment" integer
+  "average_weight_kg" double
+  "insert_timestamp" timestamp [default: `now()`]
+  "update_timestamp" timestamp [default: `now()`]
+  "notes" text
+}
+
+Table "reference" {
+  "reference_id" integer [pk]
+  "publication_year" integer
+  "type_study_id" integer  [ref: > lu_type_study.type_study_id]
+  "original_language" "character varying"
+  "doi" text
+  "insert_timestamp" timestamp [default: `now()`]
+  "update_timestamp" timestamp [default: `now()`]
+  "notes" text
+}
+
+Table "site" {
+  "site_id" integer [pk]
+  "world_country_id" integer [ref: > world_country.world_country_id]
+  "wolf_population_id" integer [ref: > lu_wolf_population.wolf_population_id]
+  "wolf_subspecies_id" integer [ref: > lu_wolf_subspecies.wolf_subspecies_id]
+  "study_area" "character varying"
+  "pack" "character varying"
+  "geom_centroid" geometry
+  "geom_area" geometry
+  "latitude" double
+  "longitude" double
+  "altitude_range_id" integer [ref: > lu_altitude_range.altitude_range_id]
+  "world_dem" integer
+  "world_biome_id" integer
+  "world_climate_id" integer
+  "world_human_settlement" integer
+  "world_human_footprint" integer
+  "insert_timestamp" timestamp [default: `now()`]
+  "update_timestamp" timestamp [default: `now()`]
+  "notes" text
+}
+
+Table "wolfdiet" {
+  "wolfdiet_id" integer [pk]
+  "diet_analysis_id" integer [ref: > diet_analysis.diet_analysis_id]
+  "site_id" integer [ref: > site.site_id]
+  "diet_item_id" integer  [ref: > diet_item.diet_item_id]
+  "diet_item_frequency" double
+  "insert_timestamp" timestamp [default: `now()`]
+  "update_timestamp" timestamp
+  "notes" text
+  "responsible" "character varying"
+  "reference_id" integer [ref: > reference.reference_id]
+}
+
+Table "lu_altitude_range" {
+  "altitude_range_id" integer [pk]
+  "altitude_range_description" "character varying"
+}
+
+Table "lu_analytical_method" {
+  "analytical_method_id" integer [pk]
+  "analytical_method_description" "character varying"
+}
+
+Table "lu_identification_method" {
+  "identification_method_id" integer [pk]
+  "identification_method_description" "character varying"
+}
+
+Table "lu_source" {
+  "source_id" integer [pk]
+  "source_description" "character varying"
+}
+
+Table "lu_temporal_scale" {
+  "temporal_scale_id" integer [pk]
+  "temporal_scale_description" "character varying"
+}
+
+Table "lu_type_study" {
+  "type_study_id" integer [pk]
+  "type_study_description" "character varying"
+}
+
+Table "lu_wolf_population" {
+  "wolf_population_id" integer [pk]
+  "wolf_population_description" "character varying"
+}
+
+Table "lu_wolf_subspecies" {
+  "wolf_subspecies_id" integer [pk]
+  "wolf_subspecies_description" "character varying"
+  "average_weight_kg" integer
+}
+
+Table "world_country" {
+  "world_country_id" integer [pk]
+  "world_country_description" "character varying"
+  "iso" "character varying"
+  "continent" "character varying"
+  "sub_region" "character varying"
+  "population" "character varying"
+  "geom" geometry
+}
+
+Table "diet_item_users" {
+  "diet_analysis_id" integer [pk]
+  "moose" double 
+  "blackbuck" double 
+  "..." double 
+}
+    
+Table diet_item_complete {
+  diet_analysis_id integer [pk]
+  world_country_description double 
+  wolf_population_description double 
+  wolf_subspecies_description double 
+  study_area double 
+  pack double 
+  latitude double 
+  longitude double 
+  source_id double 
+  analytical_method_description double 
+  identification_method_description double 
+  temporal_scale_description double 
+  derived_diet double 
+  sample_size double 
+  surface_area double 
+  sampling_period double 
+  time_series double 
+  spatial_effort double 
+  temporal_effort double 
+  total_effort double 
+  moose double 
+  blackbuck double 
+  "..." double
+  }
