@@ -1,10 +1,11 @@
-# WolfDiet
+WolfDiet
+================
+Diet analysis of the world's wolves (*Canis lupus*)  
+
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/andreacorra/wolfdiet?include_prereleases)
 ![GitHub repo size](https://img.shields.io/github/repo-size/andreacorra/wolfdiet)
 [![DOI](https://zenodo.org/badge/162189606.svg)](https://zenodo.org/badge/latestdoi/162189606)  
 
-
-Diet analysis of the world's wolves (*Canis lupus*)
 
 ![Wolf Prey Spectrum](https://github.com/andreacorra/WolfDiet/blob/master/images/wolf_prey_spectrum.png)
 Artist: _Andrea Gazzola_
