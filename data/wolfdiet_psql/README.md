@@ -1,4 +1,4 @@
-# postgresql backup file  
+# Postgresql backup  
 
 The postgresql backup file contains the standardized relational database of the wolf diet data. 
 For more information about the structure of the wolf diet database see the [WIKI](https://github.com/andreacorra/WolfDiet/wiki) page. The core tables of the database are: 
@@ -14,7 +14,7 @@ Tables are combined and stored in a user-friendly format provided as **VIEWS**
   * **diet_item_users** table including **(1)** diet_analysis_id and **(2)** the frequency of each diet item. 
   * **diet_item_complete** table including **(1)** diet_analysis_id, **(2)** additional metadata and **(3)** the frequency of each diet item. 
 
-# restore the database 
+# Restore the database 
 
 1. Download the [backup](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet_0-2-0.backup) 
 2. Then use the following command-line to restore the backup.
