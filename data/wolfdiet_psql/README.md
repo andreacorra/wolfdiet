@@ -40,7 +40,7 @@ createdb wolfdiet -U postgres
           LC_CTYPE = 'en_US.UTF-8' 
           CONNECTION LIMIT = -1;      
 
--- restore database 
+-- restore database (from terminal)
 pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/Downloads/wolfdiet_0-2-0.backup
 ``` 
 
@@ -65,7 +65,7 @@ c:\program files\PostgreSQL\x.x\bin\createdb.exe wolfdiet -U postgres
           LC_CTYPE = 'en_US.UTF-8' 
           CONNECTION LIMIT = -1;          
 
--- restore database 
+-- restore database (from terminal)
 pg_restore.exe --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~\Downloads\wolfdiet_0-2-0.backup
 ``` 
 
