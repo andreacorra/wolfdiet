@@ -1,4 +1,4 @@
-# WOLFDIET PROJECT WORKFLOW 
+# WORKFLOW 
 
 This directory contains all the code to reproduce the project: 
 * **0_db_structure** Generate the structure of the database
