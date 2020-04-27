@@ -1,6 +1,6 @@
 # Postgresql database  
 
-The postgresql backup file contains the standardized relational database of the wolf diet data. 
+The postgresql backup file contains the standardized relational database of the wolfdiet data. 
 For more information about the structure of the wolf diet database see the [WIKI](https://github.com/andreacorra/WolfDiet/wiki) page. The core tables of the database are: 
 
 
