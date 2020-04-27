@@ -28,7 +28,7 @@ pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/
 ``` 
 
 ## Windows
-You can find **create_db** and **pg_restore** in the bin of your postgresql installation. Fill the installed postgresql version in the **'x.x'**.
+In Windows you need to provide the file path and file extension of the functions that are used to restore the database. You can find **create_db** and **pg_restore** in the bin of your postgresql installation. Fill the installed postgresql version in the **'x.x'**.
 ``` sql
 -- create database
 c:\program files\PostgreSQL\x.x\bin\createdb.exe wolfdiet -U postgres
