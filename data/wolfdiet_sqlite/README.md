@@ -1,1 +1,1 @@
-This folder contains the SQLite version of wolfdiet database
+This folder will contain the SQLite version of wolfdiet database (TBD)
