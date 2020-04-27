@@ -17,15 +17,23 @@ Tables are combined and stored in a user-friendly format provided as **VIEWS**
 # restore the database 
 
 1. Download the [backup](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet_0-2-0.backup) 
-2. Then use the following commandline code to restore the backup
+2. Then use the following command-line to restore the backup.
 
-
+## MACOS
 ``` sql
--- OSMAC
 -- create database
 createdb wolfdiet -U postgres
 -- restore database 
 pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/Downloads/wolfdiet_0-2-0.backup
+``` 
+
+## Windows
+You can find **create_db** and **pg_restore** in the bin of your postgresql installation
+``` sql
+-- create database
+c:\program files\PostgreSQL\x.x\bin\createdb.exe wolfdiet -U postgres
+-- restore database 
+pg_restore.exe --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/Downloads/wolfdiet_0-2-0.backup
 ``` 
 
 # Usage
