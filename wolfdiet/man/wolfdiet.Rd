@@ -8,16 +8,16 @@
 \describe{
  \item{diet_analysis_id}{bla}
  \item{world_country_description}{bla}
- \item{wolf_population_description}{bla}
- \item{wolf_subspecies_description}{bla}
+ \item{wolf_population_code}{bla}
+ \item{wolf_subspecies_code}{bla}
  \item{study_area}{bla}
  \item{pack}{bla}
  \item{latitude}{bla}
  \item{longitude}{bla}
  \item{source_id}{bla}
- \item{analytical_method_description}{bla}
- \item{identification_method_description}{bla}
- \item{temporal_scale_description}{bla}
+ \item{analytical_method_code}{bla}
+ \item{identification_method_code}{bla}
+ \item{temporal_scale_code}{bla}
  \item{derived_diet}{bla}
  \item{sample_size}{bla}
  \item{surface_area}{bla}

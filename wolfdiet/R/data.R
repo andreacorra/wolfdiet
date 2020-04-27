@@ -3,26 +3,26 @@
 #' @source this table compiles wolf diet from around the world - currently Eurasia.
 #' @format A data frame with columns:
 #' \describe{
-#'  \item{diet_analysis_id}{bla}
-#'  \item{world_country_description}{bla}
-#'  \item{wolf_population_description}{bla}
-#'  \item{wolf_subspecies_description}{bla}
-#'  \item{study_area}{bla}
-#'  \item{pack}{bla}
-#'  \item{latitude}{bla}
-#'  \item{longitude}{bla}
-#'  \item{source_id}{bla}
-#'  \item{analytical_method_description}{bla}
-#'  \item{identification_method_description}{bla}
-#'  \item{temporal_scale_description}{bla}
-#'  \item{derived_diet}{bla}
-#'  \item{sample_size}{bla}
-#'  \item{surface_area}{bla}
-#'  \item{sampling_period}{bla}
-#'  \item{time_series}{bla}
-#'  \item{spatial_effort}{bla}
-#'  \item{temporal_effort}{bla}
-#'  \item{total_effort}{bla}
+#'  \item{diet_analysis_id}{Database identifier of the analysis used to calculate the diet}
+#'  \item{world_country_description}{Country name}
+#'  \item{wolf_population_code}{Wolf population code}
+#'  \item{wolf_subspecies_code}{Wolf subspecies code}
+#'  \item{study_area}{Location name of the study area}
+#'  \item{pack}{Name of the wolf pack}
+#'  \item{latitude}{Latitude of the study area centroid (SRID=4326)}
+#'  \item{longitude}{Longitude of the study area centroid (SRID=4326)}
+#'  \item{source_code}{Code for the type of samples used in the analyses}
+#'  \item{analytical_method_code}Code for the analytical method}
+#'  \item{identification_method_code}{Code for the identification method}
+#'  \item{temporal_scale_code}{Code for the temporal scale}
+#'  \item{derived_diet}{if TRUE, diet calculated using raw data in the article}
+#'  \item{sample_size}{Total number of samples analysed in the diet analysis}
+#'  \item{surface_area}{Surface of the study area (in squared km)}
+#'  \item{sampling_period}{Sampling duration as text}
+#'  \item{time_series}{Number of intervals (seasons or years) in the diet analysis}
+#'  \item{spatial_effort}{Density of samples collected in the study area}
+#'  \item{temporal_effort}{Average number of samples per interval}
+#'  \item{total_effort}{Number of months in which the sampling was carried out}
 #'  \item{"moose_alces alces"}{Frequency of the diet item}
 #'  \item{"blackbuck_antilope cervicapra"}{Frequency of the diet item}
 #'  \item{"american bison_bison bison"}{Frequency of the diet item}
