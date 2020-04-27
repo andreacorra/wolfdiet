@@ -17,7 +17,8 @@ Tables are combined and stored in a user-friendly format provided as **VIEWS**
 # Restore the database 
 
 1. Download the [backup](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet_0-2-0.backup) 
-2. Then use the following command-line to restore the backup.
+2. Open a terminal 
+3. Use the following command-line to restore the backup.
 
 ## UNIX (macOS/Linux)
 ``` sql
