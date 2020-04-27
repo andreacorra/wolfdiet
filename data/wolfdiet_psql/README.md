@@ -1,25 +1,30 @@
 # postgresql backup file  
 
 The postgresql backup file contains the standardized relational database of the wolf diet data. 
-For more information about the structure of the wolf diet database see the wiki-page.
+For more information about the structure of the wolf diet database see the [WIKI](https://github.com/andreacorra/WolfDiet/wiki) page. The core tables of the database are: 
 
-  * **wolfdiet** table including all diet analysis
-  * **lookup** table explaining abbreviations
 
-# Installation 
+  * **wolfdiet** Fact table with information on the diet
+  * **diet_analysis** Dimension table with information on analysis used to calculate the diet
+  * **reference** Dimension table with information on the reviewed study
+  * **site** Dimension table with information on the study site
+  * **diet_item** Dimension table with information on the diet item
 
-1. Download this [zip file](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_R/wolfdiet.zip) 
-2. Then use this file to install the R-package
+Tables are combined and stored in a user-friendly format provided as **VIEWS**
+  * **diet_item_users** table including (1) diet_analysis_id and (2) the frequency of each diet item. 
+  * **diet_item_complete** table including (1) diet_analysis_id, (2) additional metadata and (3) the frequency of each diet item. 
+
+# restore the database 
+
+1. Download the [backup](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet_0-2-0.backup) 
+2. Then use the following commandline code to restore the backup
+
 
 ``` sql
-CREATE DATABASE wolfdiet
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'C'
-    LC_CTYPE = 'C'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
+-- create database
+createdb wolfdiet -U postgres
+-- restore database 
+pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet /Users/jedgroev/Downloads/wolfdiet_0-2-0.backup
 ``` 
 
 # Usage
@@ -27,23 +32,40 @@ CREATE DATABASE wolfdiet
 
 ### SELECT 
 ``` sql
+SELECT * FROM main.diet_analysis;
 
+SELECT * FROM main.diet_item;
+
+SELECT * FROM main.reference;
+
+SELECT * FROM main.site;
+
+SELECT * FROM main.wolfdiet;
 ``` 
-
 
 ### FILTER 
 ``` sql
-
+SELECT * FROM main.diet_analysis WHERE sample_size > 10;
 ``` 
-
 
 ### JOIN 
 ``` sql
-
+SELECT world_country_description, site.* 
+FROM main.site 
+JOIN env_data.world_country 
+USING (world_country_id);
 ``` 
 
+### JOIN + FILTER 
+``` sql
+SELECT world_country_description, site.* 
+FROM main.site 
+JOIN env_data.world_country 
+USING (world_country_id)
+WHERE world_country_description = 'Italy';
+```
 
 ### VIEW 
 ``` sql
-
+SELECT * FROM main.diet_item_complete;
 ``` 
