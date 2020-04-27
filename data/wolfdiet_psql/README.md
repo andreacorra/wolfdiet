@@ -11,8 +11,8 @@ For more information about the structure of the wolf diet database see the [WIKI
   * **diet_item** Dimension table with information on the diet item
 
 Tables are combined and stored in a user-friendly format provided as **VIEWS**
-  * **diet_item_users** table including (1) diet_analysis_id and (2) the frequency of each diet item. 
-  * **diet_item_complete** table including (1) diet_analysis_id, (2) additional metadata and (3) the frequency of each diet item. 
+  * **diet_item_users** table including **(1)** diet_analysis_id and **(2)** the frequency of each diet item. 
+  * **diet_item_complete** table including **(1)** diet_analysis_id, **(2)** additional metadata and **(3)** the frequency of each diet item. 
 
 # restore the database 
 
