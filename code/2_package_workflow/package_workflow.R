@@ -52,7 +52,7 @@ lookup <- dbGetQuery(con, query)
 save(lookup, file='lookup.rda')
 
 # WRITE AS CSV TO GITHUB 
-setwd('../..')
+setwd('../../..')
 write.csv(wolfdiet,'data/wolfdiet_csv/wolfdiet.csv')
 write.csv(lookup,'data/wolfdiet_csv/lookup.csv')
 
@@ -62,6 +62,9 @@ document()
 setwd('..')
 install('wolfdiet')
 library(wolfdiet)
+
+#files2zip <- dir(paste0(getwd(),'/code/wolfdiet'), full.names = TRUE)
+#zip(zipfile = 'data/wolfdiet_R/wolfdiet.zip', files = files2zip)
 
 # USE PACKAGE 
 data(wolfdiet)
