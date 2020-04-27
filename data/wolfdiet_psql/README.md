@@ -19,7 +19,7 @@ Tables are combined and stored in a user-friendly format provided as **VIEWS**
 1. Download the [backup](https://github.com/andreacorra/wolfdiet/raw/master/data/wolfdiet_psql/wolfdiet_0-2-0.backup) 
 2. Then use the following command-line to restore the backup.
 
-## UNIX (MACOS/LINUX)
+## UNIX (Macos/Linux)
 ``` sql
 -- create database
 createdb wolfdiet -U postgres
