@@ -26,7 +26,6 @@
  \item{spatial_effort}{bla}
  \item{temporal_effort}{bla}
  \item{total_effort}{bla}
- \item{"responsible"}{responsible for collecting the information}
  \item{"moose_alces alces"}{Frequency of the diet item}
  \item{"blackbuck_antilope cervicapra"}{Frequency of the diet item}
  \item{"american bison_bison bison"}{Frequency of the diet item}
@@ -100,6 +99,7 @@
  \item{"semiaquatic rodentia_semiaquatic rodentia"}{Frequency of the diet item}
  \item{"undefined item_undefined item"}{Frequency of the diet item}
  \item{"vegetable fruit_vegetable fruit"}{Frequency of the diet item}
+ \item{"responsible"}{responsible for collecting the information}
 
 }}
 \source{

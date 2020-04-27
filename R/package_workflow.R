@@ -46,7 +46,7 @@ UNION
 ORDER BY lookup, code'
 
 # WRITE AS RDA TO GITHUB 
-setwd(paste0(getwd(),'/wolfdiet/data'))
+setwd(paste0(getwd(),'/data'))
 save(wolfdiet, file='wolfdiet.rda')
 lookup <- dbGetQuery(con, query)
 save(lookup, file='lookup.rda')
