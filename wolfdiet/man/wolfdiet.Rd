@@ -26,6 +26,7 @@
  \item{spatial_effort}{bla}
  \item{temporal_effort}{bla}
  \item{total_effort}{bla}
+ \item{"responsible"}{responsible for collecting the information}
  \item{"moose_alces alces"}{Frequency of the diet item}
  \item{"blackbuck_antilope cervicapra"}{Frequency of the diet item}
  \item{"american bison_bison bison"}{Frequency of the diet item}
@@ -83,22 +84,22 @@
  \item{"red fox_vulpes vulpes"}{Frequency of the diet item}
  \item{"wild artiodactyla_wild artiodactyla"}{Frequency of the diet item}
  \item{"wild bovidae_wild bovidae"}{Frequency of the diet item}
- \item{bird}{Frequency of the diet item}
- \item{"castor sp"}{Frequency of the diet item}
- \item{cervidae}{Frequency of the diet item}
- \item{"domestic ungulata"}{Frequency of the diet item}
- \item{fish}{Frequency of the diet item}
- \item{garbage}{Frequency of the diet item}
- \item{lagomorpha}{Frequency of the diet item}
- \item{"marmota sp"}{Frequency of the diet item}
- \item{mesomammals}{Frequency of the diet item}
- \item{micromammals}{Frequency of the diet item}
- \item{microrodents}{Frequency of the diet item}
- \item{other}{Frequency of the diet item}
- \item{"other domestic ungulata"}{Frequency of the diet item}
- \item{"semiaquatic rodentia"}{Frequency of the diet item}
- \item{"undefined item"}{Frequency of the diet item}
- \item{"vegetable fruit"}{Frequency of the diet item}
+ \item{bird_bird}{Frequency of the diet item}
+ \item{"castor sp_castor sp"}{Frequency of the diet item}
+ \item{cervidae_cervidae}{Frequency of the diet item}
+ \item{"domestic ungulata_domestic ungulata"}{Frequency of the diet item}
+ \item{fish_fish}{Frequency of the diet item}
+ \item{garbage_garbage}{Frequency of the diet item}
+ \item{lagomorpha_lagomorpha}{Frequency of the diet item}
+ \item{"marmota sp_marmota sp"}{Frequency of the diet item}
+ \item{mesomammals_mesomammals}{Frequency of the diet item}
+ \item{micromammals_micromammals}{Frequency of the diet item}
+ \item{microrodents_microrodents}{Frequency of the diet item}
+ \item{other_other}{Frequency of the diet item}
+ \item{"other domestic ungulata_other domestic ungulata"}{Frequency of the diet item}
+ \item{"semiaquatic rodentia_semiaquatic rodentia"}{Frequency of the diet item}
+ \item{"undefined item_undefined item"}{Frequency of the diet item}
+ \item{"vegetable fruit_vegetable fruit"}{Frequency of the diet item}
 
 }}
 \source{
