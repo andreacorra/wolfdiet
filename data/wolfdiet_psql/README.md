@@ -21,10 +21,11 @@ Tables are combined and stored in a user-friendly format provided as **VIEWS**
 
 
 ``` sql
+-- OSMAC
 -- create database
 createdb wolfdiet -U postgres
 -- restore database 
-pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet /Users/jedgroev/Downloads/wolfdiet_0-2-0.backup
+pg_restore --verbose --no-acl --no-owner -h localhost -U postgres -d wolfdiet ~/Downloads/wolfdiet_0-2-0.backup
 ``` 
 
 # Usage
